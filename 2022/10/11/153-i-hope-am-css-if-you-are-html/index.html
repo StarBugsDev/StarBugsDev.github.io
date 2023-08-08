@@ -1,0 +1,213 @@
+<!DOCTYPE html><html><head><link rel=manifest href=/manifest.json><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>第 153 期 - 如果你是 HTML，那希望我能是為你增添色彩的 CSS | StarBugs Weekly 星巴哥技術週刊</title><meta name="description" content="第 153 期 - 如果你是 HTML，那希望我能是為你增添色彩的 CSS"><meta name="keywords" content=""><meta name="author" content="StarBugs Weekly Editors"><meta name="copyright" content="StarBugs Weekly Editors"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="canonical" href="https://starbugs.dev/2022/10/11/153-i-hope-am-css-if-you-are-html/"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="第 153 期 - 如果你是 HTML，那希望我能是為你增添色彩的 CSS"><meta name="twitter:description" content="第 153 期 - 如果你是 HTML，那希望我能是為你增添色彩的 CSS"><meta name="twitter:image" content="https://starbugs.dev/img/153cover.jpeg"><meta property="og:type" content="article"><meta property="og:title" content="第 153 期 - 如果你是 HTML，那希望我能是為你增添色彩的 CSS"><meta property="og:url" content="https://starbugs.dev/2022/10/11/153-i-hope-am-css-if-you-are-html/"><meta property="og:site_name" content="StarBugs Weekly 星巴哥技術週刊"><meta property="og:description" content="第 153 期 - 如果你是 HTML，那希望我能是為你增添色彩的 CSS"><meta property="og:image" content="https://starbugs.dev/img/153cover.jpeg"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="prev" title="第 154 期 - 工程師不會被同一個 Bug 擊倒兩次" href="https://starbugs.dev/2022/10/18/154-programmer-will-not-be-defeated-twice-by-same-bug/"><link rel="next" title="第 152 期 - 要打！去練舞室打！" href="https://starbugs.dev/2022/10/04/152-go-fighting/"><link rel="dns-prefetch" href="https://www.google-analytics.com"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-151536743-1', 'auto');
+ga('send', 'pageview');
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://xxx/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight_copy: 'false',
+  highlight_lang: 'true',
+  highlight_shrink: 'false',
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  bookmark: {
+    title: 'Bookmark',
+    message_prev: 'Press',
+    message_next: 'to bookmark this page'
+  },
+  runtime_unit: 'days',
+  copyright: undefined,
+  copy_copyright_js: false
+  
+}</script><link rel="alternate" href="/atom.xml" title="StarBugs Weekly 星巴哥技術週刊" type="application/atom+xml">
+</head><body><div id="header"> <div id="page-header"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">StarBugs Weekly 星巴哥技術週刊</a></span><i class="fa fa-bars fa-fw toggle-menu pull-right close" aria-hidden="true"></i><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="https://medium.com/starbugs" target="_blank" rel="noopener"><i class="fa-fw fa fa-medium"></i><span> 技術專欄</span></a></div><div class="menus_item"><a class="site-page" href="https://www.facebook.com/starbugsweekly" target="_blank" rel="noopener"><i class="fa-fw fa fa-facebook"></i><span> 粉絲專頁</span></a></div><div class="menus_item"><a class="site-page" href="/atom.xml"><i class="fa-fw fa fa-rss"></i><span> RSS</span></a></div><script>document.body.addEventListener('touchstart', function(){ });</script></div></span><span class="pull-right" id="search_button"></span></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="lozad avatar_img" src="/img/logo.jpg" onerror="onerror=null;src='/img/friend_404.gif'"></div><div class="mobile_post_data"><div class="mobile_data_item is_center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">Articles</div><div class="length_num">180</div></a></div></div><div class="mobile_data_item is_center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">Tags</div><div class="length_num">2</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="https://medium.com/starbugs" target="_blank" rel="noopener"><i class="fa-fw fa fa-medium"></i><span> 技術專欄</span></a></div><div class="menus_item"><a class="site-page" href="https://www.facebook.com/starbugsweekly" target="_blank" rel="noopener"><i class="fa-fw fa fa-facebook"></i><span> 粉絲專頁</span></a></div><div class="menus_item"><a class="site-page" href="/atom.xml"><i class="fa-fw fa fa-rss"></i><span> RSS</span></a></div><script>document.body.addEventListener('touchstart', function(){ });</script></div></div></div><div id="body-wrap"><div id="content-outer"><div class="full_page" id="nav"><div class="nav_bg" style="background-image: url(/img/banner.jpeg)"></div><div id="site-info"><div id="site-title"><span class="blogtitle"><img class="bannerLogo" src="/img/logo.png"></span><!--= page.title || page.tag || page.category || config.title--></div><div id="site-sub-title" style="display: flex;justify-content: center;"><span class="subtitle" style="width: 75%; max-width: 900px;">StarBugs Weekly 由一群在星空般的 Bug 中求生存的開發者所創立的週刊。每週二我們會撰寫一篇原創文章與蒐集一系列國內外的好文與大家分享。內容包含 Web 前端、後端、DevOps、產品開發、專案管理 ... 等等，一切跟產品開發有關的知識。</span></div><div id="site-social-icons"><a class="social-icon" href="https://www.facebook.com/starbugsweekly" target="_blank"><i class="fa fa-facebook"></i></a><a class="social-icon" href="https://medium.com/starbugs" target="_blank"><i class="fa fa-medium"></i></a><a class="social-icon" href="/atom.xml" target="_blank"><i class="fa fa-rss"></i></a></div></div><div class="scroll-down"><i class="fa fa-angle-down scroll-down-effects"></i></div><div class="subscription"><span>SUBSCRIBE WITH MAIL</span><!--Zoho Campaigns Web-Optin Form Starts Here-->
+<script type="text/javascript" src="https://zcsub-cmpzourl.maillist-manage.com/js/optin.min.js" onload="setupSF('sf3z342b3a93d283393efdaa180a2ac842e86a26a8e698e9f7562a3662a91314393c','ZCFORMVIEW',false,'light',false,'0')"></script>
+<script type="text/javascript">
+	function runOnFormSubmit_sf3z342b3a93d283393efdaa180a2ac842e86a26a8e698e9f7562a3662a91314393c(th){
+		/*Before submit, if you want to trigger your event, "include your code here"*/
+	};
+</script>
+<style>
+  .SIGNUP_FLD {
+    display: inline-block;
+  }
+  #subscribe-button {
+    font-size: 13px;
+    border: none;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    letter-spacing: .03em;
+    color: #fff;
+    background: #E35751;
+    box-sizing: border-box;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 18px;
+    display: inline-block;
+    margin: 0;
+    transition: all 0.23s ease-in-out 0s;
+  }
+  #EMBED_FORM_EMAIL_LABEL, #EMBED_FORM_NAME_LABEL {
+    font-family: "Open Sans","Helvetica Neue",Arial,Helvetica,Verdana,sans-serif;
+    font-size: 15px;
+    border: 1px solid #ABB0B2;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color: #343434;
+    background-color: #fff;
+    box-sizing: border-box;
+    height: 32px;
+    padding: 0px 0.4em;
+    display: inline-block;
+    margin: 0;
+    width: 250px;
+    vertical-align: middle;
+  }
+  #EMBED_FORM_NAME_LABEL{
+    width: 100px;
+  }
+</style>
+
+<div id="sf3z342b3a93d283393efdaa180a2ac842e86a26a8e698e9f7562a3662a91314393c" data-type="signupform">
+	<div id="customForm">
+		<div class="quick_form_5_css" name="SIGNUP_BODY">
+			<div>
+				<!-- <div id="SIGNUP_HEADING">Join Our Newsletter</div> -->
+				<div style="position:relative;">
+					<div id="Zc_SignupSuccess" style="display:none;position:absolute;margin-left:4%;width:90%;background-color: white; padding: 3px; border: 3px solid rgb(194, 225, 154);  margin-top: 10px;margin-bottom:10px;word-break:break-all ">
+						<table width="100%" cellspacing="0" cellpadding="0" border="0">
+							<tbody>
+								<tr>
+									<td width="10%">
+										<img class="successicon" src="https://zcsub-cmpzourl.maillist-manage.com/images/challangeiconenable.jpg" align="absmiddle">
+									</td>
+									<td>
+										<span id="signupSuccessMsg" style="color: rgb(73, 140, 132); font-family: sans-serif; font-size: 14px;word-break:break-word">&nbsp;&nbsp;Thank you for Signing Up</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<form method="POST" id="zcampaignOptinForm" action="https://zcsub-cmpzourl.maillist-manage.com/weboptin.zc" target="_zcSignup">
+					<!-- <div id="errorMsgDiv">Please correct the marked field(s) below.</div> -->
+					<!-- <div class="SIGNUP_FLD">
+						<input type="text" placeholder="Name" changeitem="SIGNUP_FORM_FIELD" name="LASTNAME" id="EMBED_FORM_NAME_LABEL">
+					</div> -->
+          <div class="SIGNUP_FLD">
+						<input type="text" placeholder="Email" changeitem="SIGNUP_FORM_FIELD" name="CONTACT_EMAIL" id="EMBED_FORM_EMAIL_LABEL">
+					</div>
+					<div class="SIGNUP_FLD">
+						<input id="subscribe-button" type="button" name="SIGNUP_SUBMIT_BUTTON" id="zcWebOptin" value="Subscribe">
+					</div>
+          <div>No spam, ever. We'll never share your address and you can opt out at any time</div>
+					<input type="hidden" id="fieldBorder" value="">
+					<input type="hidden" id="submitType" name="submitType" value="optinCustomView">
+					<input type="hidden" id="emailReportId" name="emailReportId" value="">
+					<input type="hidden" id="formType" name="formType" value="QuickForm">
+					<input type="hidden" name="zx" id="cmpZuid" value="1300df041">
+					<input type="hidden" name="zcvers" value="3.0">
+					<input type="hidden" name="oldListIds" id="allCheckedListIds" value="">
+					<input type="hidden" id="mode" name="mode" value="OptinCreateView">
+					<input type="hidden" id="zcld" name="zcld" value="">
+					<input type="hidden" id="zctd" name="zctd" value="">
+					<input type="hidden" id="document_domain" value="">
+					<input type="hidden" id="zc_Url" value="zcsub-cmpzourl.maillist-manage.com">
+					<input type="hidden" id="new_optin_response_in" value="0">
+					<input type="hidden" id="duplicate_optin_response_in" value="0">
+					<input type="hidden" name="zc_trackCode" id="zc_trackCode" value="ZCFORMVIEW">
+					<input type="hidden" id="zc_formIx" name="zc_formIx" value="3z342b3a93d283393efdaa180a2ac842e86a26a8e698e9f7562a3662a91314393c">
+					<input type="hidden" id="viewFrom" value="URL_ACTION">
+					<span style="display: none" id="dt_CONTACT_EMAIL">1,true,6,Contact Email,2</span>
+					<span style="display: none" id="dt_FIRSTNAME">1,false,1,First Name,2</span>
+					<span style="display: none" id="dt_LASTNAME">1,false,1,Last Name,2</span>
+				</form>
+			</div>
+		</div>
+	</div>
+	<img src="https://zcsub-cmpzourl.maillist-manage.com/images/spacer.gif" id="refImage" onload="referenceSetter(this)">
+</div>
+<input type="hidden" id="signupFormType" value="QuickForm_Horizontal">
+<div id="zcOptinOverLay" oncontextmenu="return false" style="display:none;text-align: center; background-color: rgb(0, 0, 0); opacity: 0.5; z-index: 100; position: fixed; width: 100%; top: 0px; left: 0px; height: 988px;"></div>
+<div id="zcOptinSuccessPopup" style="display:none;z-index: 9999;width: 800px; height: 40%;top: 84px;position: fixed; left: 26%;background-color: #FFFFFF;border-color: #E6E6E6; border-style: solid; border-width: 1px;  box-shadow: 0 1px 10px #424242;padding: 35px;">
+	<span style="position: absolute;top: -16px;right:-14px;z-index:99999;cursor: pointer;" id="closeSuccess">
+		<img src="https://zcsub-cmpzourl.maillist-manage.com/images/videoclose.png">
+	</span>
+	<div id="zcOptinSuccessPanel"></div>
+</div>
+
+<!--Zoho Campaigns Web-Optin Form Ends Here--></div></div><div class="layout layout_post" id="content-inner"><article id="post"><h1>第 153 期 - 如果你是 HTML，那希望我能是為你增添色彩的 CSS</h1><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> Created on 2022-10-11</time><div class="article-container" id="post-content"><h2 id="前端開發"><a href="#前端開發" class="headerlink" title="前端開發"></a>前端開發</h2><h3 id="The-Future-of-the-Web-is-on-the-Edge"><a href="#The-Future-of-the-Web-is-on-the-Edge" class="headerlink" title="The Future of the Web is on the Edge"></a><a href="https://deno.com/blog/the-future-of-web-is-on-the-edge" target="_blank" rel="noopener">The Future of the Web is on the Edge</a></h3><p>文章標題上的 edge 是指你的網站或 APP 同時給在世界各地的 server 託管，讓 server 可以更靠近使用者一點，算是物理上的拉近使用者與 server 的距離，使得使用者能夠更快的得到 server 的回應，文章中除了比較各地的 TTFB 時間，還針對以下幾點解說 edge 的特性：</p>
+<ul>
+<li>更靠進使用者的 Caching</li>
+<li>更少的 servers，更多的 serverless</li>
+<li>更佳的性能</li>
+<li>更好的安全性</li>
+<li>更棒的開發體驗</li>
+</ul>
+<h3 id="A-Deep-Dive-Into-CSS-Grid-minmax"><a href="#A-Deep-Dive-Into-CSS-Grid-minmax" class="headerlink" title="A Deep Dive Into CSS Grid minmax()"></a><a href="https://ishadeed.com/article/css-grid-minmax/" target="_blank" rel="noopener">A Deep Dive Into CSS Grid minmax()</a></h3><p>CSS 的 grid 排版相當好用！且在 grid 系統裡面有個作者認為非常強大 <code>minmax()</code> 特性，使他寫了一篇文章，來當作一份完整的 <code>minmax()</code> 使用指南。在文章裡，程式碼、圖片、影片全都有！可以花一些時間慢慢看完。</p>
+<h3 id="在-reduce-使用點點點-spread-operator-是效能上的-anti-pattern"><a href="#在-reduce-使用點點點-spread-operator-是效能上的-anti-pattern" class="headerlink" title="在 reduce 使用點點點 spread operator 是效能上的 anti-pattern"></a><a href="https://jason-memo.dev/posts/spread-in-reduce-is-a-perf-antipattern/" target="_blank" rel="noopener">在 reduce 使用點點點 spread operator 是效能上的 anti-pattern</a></h3><p>在一些 reduce 中，常常會為了使每個 object 都是 immutable 的而使用 spread operator 語法產生另一個新的 object，但也因為這樣會導致時間複雜度從 O(n) 變成 O(n^2)，雖然在大部分情況下，這麼做是不會顯著的影響到效能，但在真的需要優化的時候，還是可以注意一下這種寫法所產生出來的額外效能耗損。</p>
+<h2 id="Golang"><a href="#Golang" class="headerlink" title="Golang"></a>Golang</h2><h3 id="乾淨的-Golang-編碼-Clean-Go-code-系列"><a href="#乾淨的-Golang-編碼-Clean-Go-code-系列" class="headerlink" title="乾淨的 Golang 編碼 (Clean Go code) 系列"></a><a href="https://datapool.tw/2022/09/11/%e8%89%af%e5%a5%bd%e7%9a%84%e4%b9%be%e6%b7%a8%e7%9a%84-golang-%e7%b7%a8%e7%a2%bc-clean-go-code1/" target="_blank" rel="noopener">乾淨的 Golang 編碼 (Clean Go code) 系列</a></h3><p>把程式碼寫得乾淨漂亮從來不是一件容易的事，這一系列文章以 Go 為例分享了怎麼把程式跟註解都寫得更漂亮，讓你的 codebase 更好維護～</p>
+<h3 id="Concurrency-isn’t-Always-Faster-in-Go"><a href="#Concurrency-isn’t-Always-Faster-in-Go" class="headerlink" title="Concurrency isn’t Always Faster in Go"></a><a href="https://link.medium.com/9fVkvAzOktb" target="_blank" rel="noopener">Concurrency isn’t Always Faster in Go</a></h3><p>因為有 Goroutine 的關係，在 Go 裡面很輕易就可以做到併發（Concurrency），但併發並不完全就代表高效能，如果沒有搞清楚各個 thread 什麼時候會執行，那可能還會比 sequential 執行來得更慢哦</p>
+<h3 id="A-practical-approach-to-structuring-Golang-applications"><a href="#A-practical-approach-to-structuring-Golang-applications" class="headerlink" title="A practical approach to structuring Golang applications"></a><a href="https://dev.to/firdavs_kasymov/a-practical-approach-to-structuring-golang-applications-1cc2" target="_blank" rel="noopener">A practical approach to structuring Golang applications</a></h3><p>每次要開新專案時，都很煩惱資料夾的結構應該要怎麼拆分，而這篇文章介紹了一種還不錯的方法，大家可以參考看看</p>
+<h2 id="Career"><a href="#Career" class="headerlink" title="Career"></a>Career</h2><h3 id="🤑-Medium-付費文章-150-000-Amazon-Engineer-vs-300-000-Google-Engineer"><a href="#🤑-Medium-付費文章-150-000-Amazon-Engineer-vs-300-000-Google-Engineer" class="headerlink" title="[🤑 Medium 付費文章] $150,000 Amazon Engineer vs. $300,000 Google Engineer"></a><a href="https://levelup.gitconnected.com/150-000-amazon-engineer-vs-300-000-google-engineer-b0976793cf56" target="_blank" rel="noopener">[🤑 Medium 付費文章] $150,000 Amazon Engineer vs. $300,000 Google Engineer</a></h3><p>作者在 2020 與 2022 分別加入了 Amazon 與 Google 這兩間科技巨頭當軟題工程師，文章中根據他的經驗分享了這兩間公司巨大的文化差異，例如：</p>
+<ul>
+<li>Amazon 外傳有著惡名昭彰的績效改善制度，每年績效墊底的 10% 員工會失去他們的工作，但作者表示他並沒有真的遇到過，但是這種存在於勞動力中的恐懼感阻礙了工程師的發展，畢竟當一個人太擔心如何保住工作，那麼就無法做好工作</li>
+<li>Amazon 有一份希望員工遵守與實踐的工作守則，外傳的 16 項中作者從主管那裡只有聽到三項是一樣的，分別是 Ownership, Dive Deep 與 Customer Obsession，其中前兩項讓作者覺得就是在告訴人要自己把工作搞定，而且比較沒有團隊合作的感覺</li>
+<li>Amazon 對於 Customer Obsession 這項則是讓作者有深刻的體會到 “顧客就是對的！” 這句話，但是當工程師始終把客戶放在首位時，就會會了趕快把東西趕出來而犧牲掉軟體的品質，你會需要為一個客戶的小投訴而放棄自己手頭上本來在做的事情，導致你總是在為客戶優化，而不是整個軟體的建設工作</li>
+<li>Google 沒有所謂的工作領導守則，但內部流行著一句 “Build for Everyone” 的口號，當你是在為了所有人而建構軟體時，你就會開始思考如何去改善整個軟體建設工作，並專注於提升工程方面的生產力</li>
+<li>Google 的內部文件有單一個團隊在負責，而且必須要互相都審視過才能夠更新，這導致了文件的品質相當的高；而且還可以在上廁所時看到寫程式的技巧與工具；有著全自動化的開發環境設定流程；程式碼必須讓具有該語言認證的專業人士審查過才行，因為畢竟 Bug 可以在早期的 Code Review 就被發現，而不是等到上線後才發現</li>
+<li>Google 也特別注重員工福利，例如提供免費午餐與晚餐，還有健身房會員；當員工不用花時間在煮飯與打掃上時，就可以讓工作的時間更有效率；常常運動會讓人從壓力中釋放，保持更好的工作與生活平衡</li>
+</ul>
+<h3 id="🤑-Medium-付費文章-I-Reject-95-of-Developers-in-an-Interview-Here’s-How-to-Become-One-of-the-Top-5"><a href="#🤑-Medium-付費文章-I-Reject-95-of-Developers-in-an-Interview-Here’s-How-to-Become-One-of-the-Top-5" class="headerlink" title="[🤑 Medium 付費文章] I Reject 95% of Developers in an Interview: Here’s How to Become One of the Top 5%"></a><a href="https://betterprogramming.pub/i-reject-95-of-developers-in-an-interview-heres-how-to-become-one-of-the-top-5-aebf70ac427f" target="_blank" rel="noopener">[🤑 Medium 付費文章] I Reject 95% of Developers in an Interview: Here’s How to Become One of the Top 5%</a></h3><p>對於大多數想要尋找 Junior 工程師的公司來說，最好希望聘僱到的並不是一個有著厲害技能的人，而是這個人跟公司文化相吻合，而且未來有著成長的潛力，所以假如你是一個 Junior 工程師，你的長期貢獻遠比目前所具有的技能來的重要，因此面試的目的是需要證明和你工作會是良好的經驗，而且你會是一個有潛力成為優秀工程師的人！這篇文章便是想要跟大家分享如何達成這樣的一個目標，底下稍微列一下文章大綱，詳細內容請參閱原文：</p>
+<ul>
+<li>Communicate Your Intentions</li>
+<li>Be Honest</li>
+<li>Have a Positive Attitude</li>
+<li>Be Trainable</li>
+<li>Be Interested</li>
+</ul>
+<h3 id="Interview-Guide"><a href="#Interview-Guide" class="headerlink" title="Interview Guide"></a><a href="https://interviewguide.dev/" target="_blank" rel="noopener">Interview Guide</a></h3><p>Nick 是一個在微軟的資深軟體工程師，他參與過超過一百場軟體工程師的面試 (包含擔任面試者與面試官)，不管是如 FAANG 科技巨頭或是小新創公司的面試他都通過了，所以他決定把自己主觀的面試經驗寫成這份面試指南來回饋給社群，讓更多的人可以透過這份指南來準備面試，並且提升自己的面試機會！</p>
+<h2 id="Hacker-News"><a href="#Hacker-News" class="headerlink" title="Hacker News"></a>Hacker News</h2><h3 id="Dutch-employee-fired-by-U-S-firm-for-shutting-off-webcam-awarded-€75-000-in-court"><a href="#Dutch-employee-fired-by-U-S-firm-for-shutting-off-webcam-awarded-€75-000-in-court" class="headerlink" title="Dutch employee fired by U.S. firm for shutting off webcam awarded €75,000 in court"></a><a href="https://nltimes.nl/2022/10/09/dutch-employee-fired-us-firm-shutting-webcam-awarded-eu75000-court" target="_blank" rel="noopener">Dutch employee fired by U.S. firm for shutting off webcam awarded €75,000 in court</a></h3><p>一個美國公司的員工，在遠端工作的時候因為拒絕打開事視訊鏡頭而被解雇，而荷蘭法院判定不當解雇而判給他 75000 歐元。該公司是一間叫做 Chetu Inc. 的位於佛羅里達的公司。</p>
+<p>該員工被要求參加一個「糾正行為計畫」的虛擬訓練營，參加的期間必須保持視訊鏡頭的開啟。而當他在開啟兩天後，他覺得他的隱私被侵犯所以關閉了視訊鏡頭，公司因此解雇他。而他一狀告到荷蘭法院，法院判賠他 75000 歐元。</p>
+<h3 id="How-to-catch-and-handle-errors-in-bash"><a href="#How-to-catch-and-handle-errors-in-bash" class="headerlink" title="How to catch and handle errors in bash"></a><a href="https://www.xmodulo.com/catch-handle-errors-bash.html" target="_blank" rel="noopener">How to catch and handle errors in bash</a></h3><p>如何在 Bash 中處理錯誤，這篇文章告訴你怎麼做</p>
+<h3 id="Apple-asks-suppliers-to-shift-AirPods-Beats-production-to-India-Nikkei-Asia"><a href="#Apple-asks-suppliers-to-shift-AirPods-Beats-production-to-India-Nikkei-Asia" class="headerlink" title="Apple asks suppliers to shift AirPods, Beats production to India - Nikkei Asia"></a><a href="https://asia.nikkei.com/Spotlight/Supply-Chain/Apple-asks-suppliers-to-shift-AirPods-Beats-production-to-India" target="_blank" rel="noopener">Apple asks suppliers to shift AirPods, Beats production to India - Nikkei Asia</a></h3><p>蘋果要求供應商將 Airpods 與 Beats 生產線移動到印度，這個動作將全球供應鏈部屬至南亞國家，降低對中國的依賴，以因應中美貿易戰。</p>
+<h2 id="StarBugs-Weekly"><a href="#StarBugs-Weekly" class="headerlink" title="StarBugs Weekly"></a>StarBugs Weekly</h2><p>StarBugs Weekly 由一群不寫文章就會想要亂花錢，但是又沒有那麼多錢，只好繼續寫文章的開發者所創立。<br>內容包含 Web 前端、中端、後端、DevOps、產品開發、精實創業，一切跟產品有關的知識，都是我們的守備範圍！<br>不想漏追科技新聞的人，趕緊把 StarBugs Telegram Bot 訂閱起來 <a href="https://t.me/starbugs_weekly_bot" target="_blank" rel="noopener">https://t.me/starbugs_weekly_bot</a> (對機器人說 /subscribe 即可) </p>
+<p>另外，為了讓 Starbugs 的專欄有更多豐富、優質的內容，我們決定要開始誠徵 Writer 了。如果你本來就有在寫文章，對於文章的品質有要求、而且也樂於分享討論技術，那很歡迎你以 Writer 的身份加入我們。請動動手指頭私訊我們粉專 <a href="https://www.facebook.com/StarbugsWeekly" target="_blank" rel="noopener">星巴哥技術週刊</a>，並附上自我介紹跟最近寫的文章，就有機會加入我們唷 🙌</p>
+<p>Writers:</p>
+<ul>
+<li><a href="https://medium.com/@hannahlin" target="_blank" rel="noopener">@HannahLin</a> - 從台灣到矽谷，熱愛前端的工程師女孩。</li>
+<li><a href="https://oldmo860617.medium.com/" target="_blank" rel="noopener">@KyleMo</a> - 雜食性軟體工程師，喜歡的技術我都想學。</li>
+<li><a href="https://medium.com/@airwaves" target="_blank" rel="noopener">@Airwaves</a> - Hi~我是 Airwaves，熱愛研究如何造輪子的前端工程師。</li>
+<li><a href="https://medium.com/@w5151381guy" target="_blank" rel="noopener">@Andy</a> - 目標成為用嘴巴工作的工程師，專長為網頁開發以及 K8s。</li>
+<li><a href="https://lazypro.medium.com/" target="_blank" rel="noopener">@lazypro</a> - 從 embedded 到 kernel，從 device 上雲端，程式無涯、無法靠岸，軟體的求道者。</li>
+<li><a href="https://medium.com/@ianchen0119" target="_blank" rel="noopener">@ianchen0119</a> - 5G 領域研究生，同時也是喜歡學習不同領域技術的工程師。</li>
+<li><a href="https://00-talk.medium.com/" target="_blank" rel="noopener">@00-talk</a> - 我是 00，脖子痠痛的前端生命鬥士。</li>
+</ul>
+<p>Maintainers:</p>
+<ul>
+<li><a href="https://medium.com/@gqsm" target="_blank" rel="noopener">@GQSM</a> - Hi！我是神 Q 超人，一個先衝再說的男人。</li>
+<li><a href="https://larry850806.medium.com" target="_blank" rel="noopener">@LarryLu</a> - 我是 Larry，傳說中的 0.1 倍工程師！</li>
+<li><a href="https://medium.com/@LukaTW" target="_blank" rel="noopener">@LukaTW</a> - 一名全身都是死角的工程師。</li>
+<li><a href="https://medium.com/@smalltown" target="_blank" rel="noopener">@smalltown</a> - 熱愛鑽研各種可以提升雲端服務品質及增進團隊開發效率的開源技術。</li>
+<li><a href="https://rico-chen.medium.com/" target="_blank" rel="noopener">@RicoChen</a> - 熱愛許多技術且努力看透技術的本質，如果有什麼好玩的技術，還請各位歡迎直接找我聊聊。</li>
+</ul>
+<h2 id="Feedback"><a href="#Feedback" class="headerlink" title="Feedback"></a>Feedback</h2><p>本週呈現主題方式做了一些改變，希望讓讀者能夠更快速精準的找到自己要的資訊。也加入社群活動這個區塊，每週更新社群活動的資訊。如果有任何建議，歡迎私訊 <a href="https://www.facebook.com/StarBugsWeekly/" target="_blank" rel="noopener">星巴哥技術週刊 FB 粉絲專頁</a> 與我們聯繫。</p>
+</div></article><nav class="pagination_post" id="pagination"><div class="prev-post pull-left"><a href="/2022/10/18/154-programmer-will-not-be-defeated-twice-by-same-bug/"><img class="prev_cover lozad" data-src="/img/154cover.jpeg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Previous Post</div><div class="prev_info"><span>第 154 期 - 工程師不會被同一個 Bug 擊倒兩次</span></div></a></div><div class="next-post pull-right"><a href="/2022/10/04/152-go-fighting/"><img class="next_cover lozad" data-src="/img/152cover.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Next Post</div><div class="next_info"><span>第 152 期 - 要打！去練舞室打！</span></div></a></div></nav></div></div><footer style="background-image: url(/img/banner.jpeg)"><div id="footer"><div class="copyright">&copy;2019 - 2023 By StarBugs Weekly Editors</div></div></footer></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/nightshift.js"></script><script color="0,0,255" opacity="0.7" zIndex="-1" count="39" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN/js/canvas-nest.js"></script><script src="/js/tw_cn.js"></script><script>translateInitilization()
+</script><script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script><script>const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+observer.observe();
+</script><script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1691460553344')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body></html>

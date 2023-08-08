@@ -1,0 +1,200 @@
+<!DOCTYPE html><html><head><link rel=manifest href=/manifest.json><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>第 172 期 - 發動我風光的引擎 | StarBugs Weekly 星巴哥技術週刊</title><meta name="description" content="第 172 期 - 發動我風光的引擎"><meta name="keywords" content=""><meta name="author" content="StarBugs Weekly Editors"><meta name="copyright" content="StarBugs Weekly Editors"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="canonical" href="https://starbugs.dev/2023/04/18/172-engine/"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="第 172 期 - 發動我風光的引擎"><meta name="twitter:description" content="第 172 期 - 發動我風光的引擎"><meta name="twitter:image" content="https://starbugs.dev/img/172cover.jpg"><meta property="og:type" content="article"><meta property="og:title" content="第 172 期 - 發動我風光的引擎"><meta property="og:url" content="https://starbugs.dev/2023/04/18/172-engine/"><meta property="og:site_name" content="StarBugs Weekly 星巴哥技術週刊"><meta property="og:description" content="第 172 期 - 發動我風光的引擎"><meta property="og:image" content="https://starbugs.dev/img/172cover.jpg"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="prev" title="第 173 期 - 勞動節放假，程式碼當然也要一起休息" href="https://starbugs.dev/2023/05/02/173-labor-day/"><link rel="next" title="第 171 期 - 好想回到上禮拜五晚上" href="https://starbugs.dev/2023/04/04/171-want-to-back-to-the-last-friday-night/"><link rel="dns-prefetch" href="https://www.google-analytics.com"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-151536743-1', 'auto');
+ga('send', 'pageview');
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://xxx/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight_copy: 'false',
+  highlight_lang: 'true',
+  highlight_shrink: 'false',
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  bookmark: {
+    title: 'Bookmark',
+    message_prev: 'Press',
+    message_next: 'to bookmark this page'
+  },
+  runtime_unit: 'days',
+  copyright: undefined,
+  copy_copyright_js: false
+  
+}</script><link rel="alternate" href="/atom.xml" title="StarBugs Weekly 星巴哥技術週刊" type="application/atom+xml">
+</head><body><div id="header"> <div id="page-header"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">StarBugs Weekly 星巴哥技術週刊</a></span><i class="fa fa-bars fa-fw toggle-menu pull-right close" aria-hidden="true"></i><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="https://medium.com/starbugs" target="_blank" rel="noopener"><i class="fa-fw fa fa-medium"></i><span> 技術專欄</span></a></div><div class="menus_item"><a class="site-page" href="https://www.facebook.com/starbugsweekly" target="_blank" rel="noopener"><i class="fa-fw fa fa-facebook"></i><span> 粉絲專頁</span></a></div><div class="menus_item"><a class="site-page" href="/atom.xml"><i class="fa-fw fa fa-rss"></i><span> RSS</span></a></div><script>document.body.addEventListener('touchstart', function(){ });</script></div></span><span class="pull-right" id="search_button"></span></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="lozad avatar_img" src="/img/logo.jpg" onerror="onerror=null;src='/img/friend_404.gif'"></div><div class="mobile_post_data"><div class="mobile_data_item is_center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">Articles</div><div class="length_num">180</div></a></div></div><div class="mobile_data_item is_center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">Tags</div><div class="length_num">2</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="https://medium.com/starbugs" target="_blank" rel="noopener"><i class="fa-fw fa fa-medium"></i><span> 技術專欄</span></a></div><div class="menus_item"><a class="site-page" href="https://www.facebook.com/starbugsweekly" target="_blank" rel="noopener"><i class="fa-fw fa fa-facebook"></i><span> 粉絲專頁</span></a></div><div class="menus_item"><a class="site-page" href="/atom.xml"><i class="fa-fw fa fa-rss"></i><span> RSS</span></a></div><script>document.body.addEventListener('touchstart', function(){ });</script></div></div></div><div id="body-wrap"><div id="content-outer"><div class="full_page" id="nav"><div class="nav_bg" style="background-image: url(/img/banner.jpeg)"></div><div id="site-info"><div id="site-title"><span class="blogtitle"><img class="bannerLogo" src="/img/logo.png"></span><!--= page.title || page.tag || page.category || config.title--></div><div id="site-sub-title" style="display: flex;justify-content: center;"><span class="subtitle" style="width: 75%; max-width: 900px;">StarBugs Weekly 由一群在星空般的 Bug 中求生存的開發者所創立的週刊。每週二我們會撰寫一篇原創文章與蒐集一系列國內外的好文與大家分享。內容包含 Web 前端、後端、DevOps、產品開發、專案管理 ... 等等，一切跟產品開發有關的知識。</span></div><div id="site-social-icons"><a class="social-icon" href="https://www.facebook.com/starbugsweekly" target="_blank"><i class="fa fa-facebook"></i></a><a class="social-icon" href="https://medium.com/starbugs" target="_blank"><i class="fa fa-medium"></i></a><a class="social-icon" href="/atom.xml" target="_blank"><i class="fa fa-rss"></i></a></div></div><div class="scroll-down"><i class="fa fa-angle-down scroll-down-effects"></i></div><div class="subscription"><span>SUBSCRIBE WITH MAIL</span><!--Zoho Campaigns Web-Optin Form Starts Here-->
+<script type="text/javascript" src="https://zcsub-cmpzourl.maillist-manage.com/js/optin.min.js" onload="setupSF('sf3z342b3a93d283393efdaa180a2ac842e86a26a8e698e9f7562a3662a91314393c','ZCFORMVIEW',false,'light',false,'0')"></script>
+<script type="text/javascript">
+	function runOnFormSubmit_sf3z342b3a93d283393efdaa180a2ac842e86a26a8e698e9f7562a3662a91314393c(th){
+		/*Before submit, if you want to trigger your event, "include your code here"*/
+	};
+</script>
+<style>
+  .SIGNUP_FLD {
+    display: inline-block;
+  }
+  #subscribe-button {
+    font-size: 13px;
+    border: none;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    letter-spacing: .03em;
+    color: #fff;
+    background: #E35751;
+    box-sizing: border-box;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 18px;
+    display: inline-block;
+    margin: 0;
+    transition: all 0.23s ease-in-out 0s;
+  }
+  #EMBED_FORM_EMAIL_LABEL, #EMBED_FORM_NAME_LABEL {
+    font-family: "Open Sans","Helvetica Neue",Arial,Helvetica,Verdana,sans-serif;
+    font-size: 15px;
+    border: 1px solid #ABB0B2;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color: #343434;
+    background-color: #fff;
+    box-sizing: border-box;
+    height: 32px;
+    padding: 0px 0.4em;
+    display: inline-block;
+    margin: 0;
+    width: 250px;
+    vertical-align: middle;
+  }
+  #EMBED_FORM_NAME_LABEL{
+    width: 100px;
+  }
+</style>
+
+<div id="sf3z342b3a93d283393efdaa180a2ac842e86a26a8e698e9f7562a3662a91314393c" data-type="signupform">
+	<div id="customForm">
+		<div class="quick_form_5_css" name="SIGNUP_BODY">
+			<div>
+				<!-- <div id="SIGNUP_HEADING">Join Our Newsletter</div> -->
+				<div style="position:relative;">
+					<div id="Zc_SignupSuccess" style="display:none;position:absolute;margin-left:4%;width:90%;background-color: white; padding: 3px; border: 3px solid rgb(194, 225, 154);  margin-top: 10px;margin-bottom:10px;word-break:break-all ">
+						<table width="100%" cellspacing="0" cellpadding="0" border="0">
+							<tbody>
+								<tr>
+									<td width="10%">
+										<img class="successicon" src="https://zcsub-cmpzourl.maillist-manage.com/images/challangeiconenable.jpg" align="absmiddle">
+									</td>
+									<td>
+										<span id="signupSuccessMsg" style="color: rgb(73, 140, 132); font-family: sans-serif; font-size: 14px;word-break:break-word">&nbsp;&nbsp;Thank you for Signing Up</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<form method="POST" id="zcampaignOptinForm" action="https://zcsub-cmpzourl.maillist-manage.com/weboptin.zc" target="_zcSignup">
+					<!-- <div id="errorMsgDiv">Please correct the marked field(s) below.</div> -->
+					<!-- <div class="SIGNUP_FLD">
+						<input type="text" placeholder="Name" changeitem="SIGNUP_FORM_FIELD" name="LASTNAME" id="EMBED_FORM_NAME_LABEL">
+					</div> -->
+          <div class="SIGNUP_FLD">
+						<input type="text" placeholder="Email" changeitem="SIGNUP_FORM_FIELD" name="CONTACT_EMAIL" id="EMBED_FORM_EMAIL_LABEL">
+					</div>
+					<div class="SIGNUP_FLD">
+						<input id="subscribe-button" type="button" name="SIGNUP_SUBMIT_BUTTON" id="zcWebOptin" value="Subscribe">
+					</div>
+          <div>No spam, ever. We'll never share your address and you can opt out at any time</div>
+					<input type="hidden" id="fieldBorder" value="">
+					<input type="hidden" id="submitType" name="submitType" value="optinCustomView">
+					<input type="hidden" id="emailReportId" name="emailReportId" value="">
+					<input type="hidden" id="formType" name="formType" value="QuickForm">
+					<input type="hidden" name="zx" id="cmpZuid" value="1300df041">
+					<input type="hidden" name="zcvers" value="3.0">
+					<input type="hidden" name="oldListIds" id="allCheckedListIds" value="">
+					<input type="hidden" id="mode" name="mode" value="OptinCreateView">
+					<input type="hidden" id="zcld" name="zcld" value="">
+					<input type="hidden" id="zctd" name="zctd" value="">
+					<input type="hidden" id="document_domain" value="">
+					<input type="hidden" id="zc_Url" value="zcsub-cmpzourl.maillist-manage.com">
+					<input type="hidden" id="new_optin_response_in" value="0">
+					<input type="hidden" id="duplicate_optin_response_in" value="0">
+					<input type="hidden" name="zc_trackCode" id="zc_trackCode" value="ZCFORMVIEW">
+					<input type="hidden" id="zc_formIx" name="zc_formIx" value="3z342b3a93d283393efdaa180a2ac842e86a26a8e698e9f7562a3662a91314393c">
+					<input type="hidden" id="viewFrom" value="URL_ACTION">
+					<span style="display: none" id="dt_CONTACT_EMAIL">1,true,6,Contact Email,2</span>
+					<span style="display: none" id="dt_FIRSTNAME">1,false,1,First Name,2</span>
+					<span style="display: none" id="dt_LASTNAME">1,false,1,Last Name,2</span>
+				</form>
+			</div>
+		</div>
+	</div>
+	<img src="https://zcsub-cmpzourl.maillist-manage.com/images/spacer.gif" id="refImage" onload="referenceSetter(this)">
+</div>
+<input type="hidden" id="signupFormType" value="QuickForm_Horizontal">
+<div id="zcOptinOverLay" oncontextmenu="return false" style="display:none;text-align: center; background-color: rgb(0, 0, 0); opacity: 0.5; z-index: 100; position: fixed; width: 100%; top: 0px; left: 0px; height: 988px;"></div>
+<div id="zcOptinSuccessPopup" style="display:none;z-index: 9999;width: 800px; height: 40%;top: 84px;position: fixed; left: 26%;background-color: #FFFFFF;border-color: #E6E6E6; border-style: solid; border-width: 1px;  box-shadow: 0 1px 10px #424242;padding: 35px;">
+	<span style="position: absolute;top: -16px;right:-14px;z-index:99999;cursor: pointer;" id="closeSuccess">
+		<img src="https://zcsub-cmpzourl.maillist-manage.com/images/videoclose.png">
+	</span>
+	<div id="zcOptinSuccessPanel"></div>
+</div>
+
+<!--Zoho Campaigns Web-Optin Form Ends Here--></div></div><div class="layout layout_post" id="content-inner"><article id="post"><h1>第 172 期 - 發動我風光的引擎</h1><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> Created on 2023-04-18</time><div class="article-container" id="post-content"><h2 id="本週專欄"><a href="#本週專欄" class="headerlink" title="本週專欄"></a>本週專欄</h2><h3 id="Payment-System-實戰系列（二）：盤點各大支付系統（Stripe-Apple-IAP-Google-IAB）"><a href="#Payment-System-實戰系列（二）：盤點各大支付系統（Stripe-Apple-IAP-Google-IAB）" class="headerlink" title="Payment System 實戰系列（二）：盤點各大支付系統（Stripe / Apple IAP / Google IAB）"></a><a href="https://medium.com/starbugs/f2f5da5569b0" target="_blank" rel="noopener">Payment System 實戰系列（二）：盤點各大支付系統（Stripe / Apple IAP / Google IAB）</a></h3><p>本文介紹了三個主要的支付系統：Stripe、Apple IAP、Google IAB。在選擇支付系統時，需要注意哪些必要元素，例如可測試的環境、良好的後台以及良好的文件。</p>
+<p>對於 Stripe 而言，它提供了獨立且完整的測試環境，後台 Dashboard 也相當完整，因此非常方便使用。Apple IAP 的優點是與 iOS APP 操作上無縫，使用者體驗較好，但文件散落各處，後台 Dashboard 也較不佳。Google IAB 在 Android APP 操作上無縫，使用者體驗較好，但是測試環境不健全，後台 Dashboard 也較不好用。</p>
+<p>最後，作者提醒大家，如果要上架 APP 到 App Store，而 APP 又有應用程式內付費，一定要接 Apple IAP，否則不會通過審核。</p>
+<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><h3 id="英-JavaScript-等於等於踩地雷遊戲"><a href="#英-JavaScript-等於等於踩地雷遊戲" class="headerlink" title="[英]JavaScript 等於等於踩地雷遊戲"></a><a href="https://eqeq.js.org/" target="_blank" rel="noopener">[英]JavaScript 等於等於踩地雷遊戲</a></h3><p>在提醒了 JavaScript 的 == 的恐懼之後，踩地雷遊戲將感覺像在公園散步一樣輕鬆。如果您需要深入瞭解，ECMAScript 規範的 7.2.14 節將對您有所幫助，否則呢？除非您有充分的理由，否則請使用三個等號（===）。</p>
+<h3 id="英-2023-Web-Framework-Performance-Report-Astro"><a href="#英-2023-Web-Framework-Performance-Report-Astro" class="headerlink" title="[英] 2023 Web Framework Performance Report | Astro"></a><a href="https://astro.build/blog/2023-web-framework-performance-report/" target="_blank" rel="noopener">[英] 2023 Web Framework Performance Report | Astro</a></h3><p>此報告的目的是通過現實世界的數據來更好地了解框架選擇、性能和實際用戶體驗在 Web 上的關係。我們將嘗試回答一些關鍵問題：</p>
+<ul>
+<li>現代 Web 框架在現實使用和性能方面的比較如何？</li>
+<li>框架選擇是否會影響網站的核心 Web 視覺效果？</li>
+<li>框架選擇與 JavaScript 載荷大小有多大關聯，以及其影響如何？</li>
+</ul>
+<p>為此，我們查看了三個不同的公開可用數據集：</p>
+<ul>
+<li><a href="https://developer.chrome.com/docs/crux/" target="_blank" rel="noopener">Chrome 用戶體驗報告（CrUX）</a> 提供了有關實際 Chrome 用戶在 Web 上體驗熱門目的地的用戶體驗指標。</li>
+<li><a href="https://httparchive.org/" target="_blank" rel="noopener">HTTP 存檔</a> 通過定期收集 Lighthouse 性能數據來跟踪和報告超過 1500 萬個網站的性能。</li>
+<li><a href="https://discuss.httparchive.org/t/new-dashboard-the-core-web-vitals-technology-report/2178" target="_blank" rel="noopener">核心 Web 視覺效果技術報告</a> 收集了前兩個數據集中的有用見解。</li>
+</ul>
+<h3 id="英-A-Business-Case-for-SvelteKit"><a href="#英-A-Business-Case-for-SvelteKit" class="headerlink" title="[英]A Business Case for SvelteKit"></a><a href="https://elliscs.hashnode.dev/a-business-case-for-sveltekit" target="_blank" rel="noopener">[英]A Business Case for SvelteKit</a></h3><p>這篇文章講述了作者在 XtendOps 工作期間，如何將公司的技術堆棧轉換為 SvelteKit 框架的過程。文章詳細介紹了作者在評估 SvelteKit 可行性時需要解決的問題，並分享了他們如何應對這些問題的解決方案。通過使用 SvelteKit，作者的團隊成功地實現了更好的開發體驗和技術性能，並且對公司的業務產生了實際影響。文章最後還提供了一些有用的建議，以協助其他公司在轉換到 SvelteKit 時取得成功。</p>
+<h2 id="System-Design"><a href="#System-Design" class="headerlink" title="System Design"></a>System Design</h2><h3 id="RESTful-API-How-to-design-paths-and-identify-resources"><a href="#RESTful-API-How-to-design-paths-and-identify-resources" class="headerlink" title="RESTful API: How to design paths and identify resources"></a><a href="https://homuchen.com/posts/restful-api-how-to-design-paths-and-identify-resources/" target="_blank" rel="noopener">RESTful API: How to design paths and identify resources</a></h3><p>設計 RESTful API 應該已經是後端工程師的必備技能了，這篇文章會教你怎麼從「資源」的角度下去進行設計，讓 Client 在使用時更加方便、符合直覺。</p>
+<h3 id="Instagram-System-Design"><a href="#Instagram-System-Design" class="headerlink" title="Instagram System Design"></a><a href="https://link.medium.com/YigXEzFQEyb" target="_blank" rel="noopener">Instagram System Design</a></h3><p>大家應該都用過 Instagram，如果想要自己寫一個 Instagram，那你會怎麼實作呢？這篇文章講了怎麼設計一個類似 Instagram 的 App，另外，文中也有提到怎麼進行容量估算、以及如何做資料庫的設計等等，如果對於大型系統的設計有興趣，那一定要看看這篇文章！</p>
+<h3 id="Blue-Green-Deployment-for-Node-js-Without-Kubernetes"><a href="#Blue-Green-Deployment-for-Node-js-Without-Kubernetes" class="headerlink" title="Blue Green Deployment for Node.js Without Kubernetes"></a><a href="https://semaphoreci.com/blog/blue-green-deployment-nodejs" target="_blank" rel="noopener">Blue Green Deployment for Node.js Without Kubernetes</a></h3><p>如果你對於怎麼用 CI/CD 來做藍綠部署有興趣，那你來對地方了！這篇文章介紹了藍綠部署的基本原理，並且跟你說在沒有 K8s 的情況下，要怎麼自己把藍綠部署的流程串起來，不管是理論還是實務方面都講得非常完整哦～</p>
+<h2 id="AI"><a href="#AI" class="headerlink" title="AI"></a>AI</h2><h3 id="英-Elon-Musk-悄悄啟動新的人工智慧公司-X-AI，挑戰-OpenAI"><a href="#英-Elon-Musk-悄悄啟動新的人工智慧公司-X-AI，挑戰-OpenAI" class="headerlink" title="[英]Elon Musk 悄悄啟動新的人工智慧公司 X.AI，挑戰 OpenAI"></a><a href="https://venturebeat.com/ai/elon-musk-quietly-starts-x-ai-a-new-artificial-intelligence-company-to-challenge-openai/" target="_blank" rel="noopener">[英]Elon Musk 悄悄啟動新的人工智慧公司 X.AI，挑戰 OpenAI</a></h3><p>根據最新報導，特斯拉創始人 Elon Musk 將推出一家名為 X.AI 的新人工智慧（AI）初創公司，直接競爭 OpenAI。據《金融時報》報導，Musk 已經開始組建 AI 研究和工程師團隊，並與 SpaceX 和 Tesla 的幾位投資者談過支持他的新 AI 初創公司的事宜。此外，他還購買了約 1 萬個圖形處理單元（GPU）來為新的 AI 項目提供支持。然而，這一決定引起了 OpenAI 聯合創始人 Sam Altman 的擔憂。此前，Musk 在 OpenAI 的董事會上辭職，並批評該組織追求人工通用智慧（AGI）的做法。這次，Musk 的新冒險是在他表達對人工智慧潛在危險的擔憂和對監管和監督的需要之後而進行的。</p>
+<h3 id="英-為什麼負責任的-AI-導致更準確和有效的-AI-模型？"><a href="#英-為什麼負責任的-AI-導致更準確和有效的-AI-模型？" class="headerlink" title="[英] 為什麼負責任的 AI 導致更準確和有效的 AI 模型？"></a><a href="https://venturebeat.com/ai/algorithms-auditing-algorithms-gpt-4-responsible-ai-beyond-human-scale/" target="_blank" rel="noopener">[英] 為什麼負責任的 AI 導致更準確和有效的 AI 模型？</a></h3><p>負責任的 AI 定義了在設計、開發和部署 AI 模型時確保安全、公平和道德的承諾。通過確保模型按預期運行 - 並且不會產生不良結果 - 負責任的 AI 可以幫助增加信任，保護免受損害，並提高模型表現。</p>
+<p>為了負責，AI 必須是可理解的。這已經不是人類規模的問題了；我們需要算法來幫助我們理解算法。</p>
+<p><a href="https://openai.com/research/gpt-4" target="_blank" rel="noopener">GPT-4</a>，OpenAI 的 <a href="https://venturebeat.com/ai/whats-next-in-large-language-model-llm-research-heres-whats-coming-down-the-ml-pike/" target="_blank" rel="noopener">大型語言模型（LLM）</a> 的最新版本，是基於互聯網的文本和圖像進行訓練的，而我們都知道，互聯網充滿了不精確之處，從小的錯誤說法到完全的杜撰。儘管這些錯誤本身可能很危險，但它們也必然產生不太準確和智能的 AI 模型。負責任的 AI 可以幫助我們解決這些問題，並朝著開發更好的 AI 前進。具體而言，負責任的 AI 可以：</p>
+<ol>
+<li>** 減少偏見 **：負責任的 AI 專注於解決開發過程中可能被建立到 AI 模型中的偏見。通過積極努力在數據收集、訓練和實施過程中消除偏見，AI 系統變得更加準確，為更廣泛的用戶提供更好的結果。</li>
+<li>** 增強普遍性 **：負責任的 AI 鼓勵開發在不同情境和不同人群中表現良好的模型。通過確保 AI 系統在各種情況下進行測試和驗證，可以增強這些模型的普遍性，從而產生更有效和適應性的解決方案。</li>
+<li>** 確保透明度 **：負責任的 AI 強調 AI 系統的透明度的重要性，使用戶和利益相關者更容易理解決策是如何做出的以及 AI 的運作方式。這包括提供算法、數據來源和潛在限制的可理解解釋。通過促進透明度，負責任的 AI 促進了信任和責任，使用戶能夠做出知情決策，促進了對 AI 模型的有效評估和改進。</li>
+</ol>
+<h3 id="英-OpenAI-的首席執行官表示，巨型-AI-模型的時代即將結束；GPU-危機可能是其中一個原因。"><a href="#英-OpenAI-的首席執行官表示，巨型-AI-模型的時代即將結束；GPU-危機可能是其中一個原因。" class="headerlink" title="[英]OpenAI 的首席執行官表示，巨型 AI 模型的時代即將結束；GPU 危機可能是其中一個原因。"></a><a href="https://venturebeat.com/ai/openai-chief-says-age-of-giant-ai-models-is-ending-a-gpu-crisis-could-be-one-reason-why/" target="_blank" rel="noopener">[英]OpenAI 的首席執行官表示，巨型 AI 模型的時代即將結束；GPU 危機可能是其中一個原因。</a></h3><p>OpenAI CEO Sam Altman 認為，人工智能模型不斷變大的時代即將結束。Skyworth AI 應用研發技術中心副總經理陳瑩認為，在大數據時代，人工智能的「三高」問題——高成本、高門檻和高風險——是制約人工智能發展的主要阻礙。成本問題是人工智能發展的瓶頸之一。如今，隨著大數據的快速增長，人工智能的計算需求越來越高，計算成本也不斷增加。目前，以 Nvidia 為代表的 GPU 廠商正在推出一系列面向人工智能的 GPU。這些 GPU 的價格高昂，單價甚至可以達到 3 萬美元以上。此外，GPU 的使用壽命也較短，需要不斷更新。</p>
+<p>Writer:</p>
+<ul>
+<li><a href="https://medium.com/@louisby0123" target="_blank" rel="noopener">@louisby0123</a> - Googler. UC Berkeley EECS Master Student. System Architect &amp; Backend Engineer. President of 7th Mei-chu Hackathon, founder of Hackathon Taiwan Junior.</li>
+</ul>
+<p>Maintainers:</p>
+<ul>
+<li><a href="https://larry850806.medium.com" target="_blank" rel="noopener">@LarryLu</a> - 我是 Larry，傳說中的 0.1 倍工程師！</li>
+<li><a href="https://medium.com/@gqsm" target="_blank" rel="noopener">@GQSM</a> - Hi！我是神 Q 超人，一個先衝再說的男人。</li>
+<li><a href="https://medium.com/@LukaTW" target="_blank" rel="noopener">@LukaTW</a> - 一名全身都是死角的工程師。</li>
+<li><a href="https://medium.com/@smalltown" target="_blank" rel="noopener">@smalltown</a> - 熱愛鑽研各種可以提升雲端服務品質及增進團隊開發效率的開源技術。</li>
+<li><a href="https://rico-chen.medium.com/" target="_blank" rel="noopener">@RicoChen</a> - 熱愛許多技術且努力看透技術的本質，如果有什麼好玩的技術，還請各位歡迎直接找我聊聊。</li>
+</ul>
+<h2 id="Feedback"><a href="#Feedback" class="headerlink" title="Feedback"></a>Feedback</h2><p>本週呈現主題方式做了一些改變，希望讓讀者能夠更快速精準的找到自己要的資訊。也加入社群活動這個區塊，每週更新社群活動的資訊。如果有任何建議，歡迎私訊 <a href="https://www.facebook.com/StarBugsWeekly/" target="_blank" rel="noopener">星巴哥技術週刊 FB 粉絲專頁</a> 與我們聯繫。</p>
+</div></article><nav class="pagination_post" id="pagination"><div class="prev-post pull-left"><a href="/2023/05/02/173-labor-day/"><img class="prev_cover lozad" data-src="/img/173cover.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Previous Post</div><div class="prev_info"><span>第 173 期 - 勞動節放假，程式碼當然也要一起休息</span></div></a></div><div class="next-post pull-right"><a href="/2023/04/04/171-want-to-back-to-the-last-friday-night/"><img class="next_cover lozad" data-src="/img/171cover.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Next Post</div><div class="next_info"><span>第 171 期 - 好想回到上禮拜五晚上</span></div></a></div></nav></div></div><footer style="background-image: url(/img/banner.jpeg)"><div id="footer"><div class="copyright">&copy;2019 - 2023 By StarBugs Weekly Editors</div></div></footer></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/nightshift.js"></script><script color="0,0,255" opacity="0.7" zIndex="-1" count="39" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN/js/canvas-nest.js"></script><script src="/js/tw_cn.js"></script><script>translateInitilization()
+</script><script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script><script>const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+observer.observe();
+</script><script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1691460553344')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body></html>

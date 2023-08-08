@@ -1,0 +1,193 @@
+<!DOCTYPE html><html><head><link rel=manifest href=/manifest.json><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>第 68 期 - 改個 DNS 是要改多久？- Domain 管理的常見問題 | StarBugs Weekly 星巴哥技術週刊</title><meta name="description" content="第 68 期 - 改個 DNS 是要改多久？- Domain 管理的常見問題"><meta name="keywords" content=""><meta name="author" content="StarBugs Weekly Editors"><meta name="copyright" content="StarBugs Weekly Editors"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="canonical" href="https://starbugs.dev/2021/02/16/68-domain-common-problem/"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="第 68 期 - 改個 DNS 是要改多久？- Domain 管理的常見問題"><meta name="twitter:description" content="第 68 期 - 改個 DNS 是要改多久？- Domain 管理的常見問題"><meta name="twitter:image" content="https://starbugs.dev/img/068cover.jpg"><meta property="og:type" content="article"><meta property="og:title" content="第 68 期 - 改個 DNS 是要改多久？- Domain 管理的常見問題"><meta property="og:url" content="https://starbugs.dev/2021/02/16/68-domain-common-problem/"><meta property="og:site_name" content="StarBugs Weekly 星巴哥技術週刊"><meta property="og:description" content="第 68 期 - 改個 DNS 是要改多久？- Domain 管理的常見問題"><meta property="og:image" content="https://starbugs.dev/img/068cover.jpg"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="prev" title="第 69 期 - 開學了才發現有寒假作業" href="https://starbugs.dev/2021/02/23/69-back-to-school-without-doing-homework/"><link rel="next" title="第 67 期 - 歡天喜地，東隆東隆鏹" href="https://starbugs.dev/2021/02/09/67-happy-chinses-new-year-2021/"><link rel="dns-prefetch" href="https://www.google-analytics.com"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-151536743-1', 'auto');
+ga('send', 'pageview');
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://xxx/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight_copy: 'false',
+  highlight_lang: 'true',
+  highlight_shrink: 'false',
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  bookmark: {
+    title: 'Bookmark',
+    message_prev: 'Press',
+    message_next: 'to bookmark this page'
+  },
+  runtime_unit: 'days',
+  copyright: undefined,
+  copy_copyright_js: false
+  
+}</script><link rel="alternate" href="/atom.xml" title="StarBugs Weekly 星巴哥技術週刊" type="application/atom+xml">
+</head><body><div id="header"> <div id="page-header"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">StarBugs Weekly 星巴哥技術週刊</a></span><i class="fa fa-bars fa-fw toggle-menu pull-right close" aria-hidden="true"></i><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="https://medium.com/starbugs" target="_blank" rel="noopener"><i class="fa-fw fa fa-medium"></i><span> 技術專欄</span></a></div><div class="menus_item"><a class="site-page" href="https://www.facebook.com/starbugsweekly" target="_blank" rel="noopener"><i class="fa-fw fa fa-facebook"></i><span> 粉絲專頁</span></a></div><div class="menus_item"><a class="site-page" href="/atom.xml"><i class="fa-fw fa fa-rss"></i><span> RSS</span></a></div><script>document.body.addEventListener('touchstart', function(){ });</script></div></span><span class="pull-right" id="search_button"></span></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="lozad avatar_img" src="/img/logo.jpg" onerror="onerror=null;src='/img/friend_404.gif'"></div><div class="mobile_post_data"><div class="mobile_data_item is_center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">Articles</div><div class="length_num">180</div></a></div></div><div class="mobile_data_item is_center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">Tags</div><div class="length_num">2</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="https://medium.com/starbugs" target="_blank" rel="noopener"><i class="fa-fw fa fa-medium"></i><span> 技術專欄</span></a></div><div class="menus_item"><a class="site-page" href="https://www.facebook.com/starbugsweekly" target="_blank" rel="noopener"><i class="fa-fw fa fa-facebook"></i><span> 粉絲專頁</span></a></div><div class="menus_item"><a class="site-page" href="/atom.xml"><i class="fa-fw fa fa-rss"></i><span> RSS</span></a></div><script>document.body.addEventListener('touchstart', function(){ });</script></div></div></div><div id="body-wrap"><div id="content-outer"><div class="full_page" id="nav"><div class="nav_bg" style="background-image: url(/img/banner.jpeg)"></div><div id="site-info"><div id="site-title"><span class="blogtitle"><img class="bannerLogo" src="/img/logo.png"></span><!--= page.title || page.tag || page.category || config.title--></div><div id="site-sub-title" style="display: flex;justify-content: center;"><span class="subtitle" style="width: 75%; max-width: 900px;">StarBugs Weekly 由一群在星空般的 Bug 中求生存的開發者所創立的週刊。每週二我們會撰寫一篇原創文章與蒐集一系列國內外的好文與大家分享。內容包含 Web 前端、後端、DevOps、產品開發、專案管理 ... 等等，一切跟產品開發有關的知識。</span></div><div id="site-social-icons"><a class="social-icon" href="https://www.facebook.com/starbugsweekly" target="_blank"><i class="fa fa-facebook"></i></a><a class="social-icon" href="https://medium.com/starbugs" target="_blank"><i class="fa fa-medium"></i></a><a class="social-icon" href="/atom.xml" target="_blank"><i class="fa fa-rss"></i></a></div></div><div class="scroll-down"><i class="fa fa-angle-down scroll-down-effects"></i></div><div class="subscription"><span>SUBSCRIBE WITH MAIL</span><!--Zoho Campaigns Web-Optin Form Starts Here-->
+<script type="text/javascript" src="https://zcsub-cmpzourl.maillist-manage.com/js/optin.min.js" onload="setupSF('sf3z342b3a93d283393efdaa180a2ac842e86a26a8e698e9f7562a3662a91314393c','ZCFORMVIEW',false,'light',false,'0')"></script>
+<script type="text/javascript">
+	function runOnFormSubmit_sf3z342b3a93d283393efdaa180a2ac842e86a26a8e698e9f7562a3662a91314393c(th){
+		/*Before submit, if you want to trigger your event, "include your code here"*/
+	};
+</script>
+<style>
+  .SIGNUP_FLD {
+    display: inline-block;
+  }
+  #subscribe-button {
+    font-size: 13px;
+    border: none;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    letter-spacing: .03em;
+    color: #fff;
+    background: #E35751;
+    box-sizing: border-box;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 18px;
+    display: inline-block;
+    margin: 0;
+    transition: all 0.23s ease-in-out 0s;
+  }
+  #EMBED_FORM_EMAIL_LABEL, #EMBED_FORM_NAME_LABEL {
+    font-family: "Open Sans","Helvetica Neue",Arial,Helvetica,Verdana,sans-serif;
+    font-size: 15px;
+    border: 1px solid #ABB0B2;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color: #343434;
+    background-color: #fff;
+    box-sizing: border-box;
+    height: 32px;
+    padding: 0px 0.4em;
+    display: inline-block;
+    margin: 0;
+    width: 250px;
+    vertical-align: middle;
+  }
+  #EMBED_FORM_NAME_LABEL{
+    width: 100px;
+  }
+</style>
+
+<div id="sf3z342b3a93d283393efdaa180a2ac842e86a26a8e698e9f7562a3662a91314393c" data-type="signupform">
+	<div id="customForm">
+		<div class="quick_form_5_css" name="SIGNUP_BODY">
+			<div>
+				<!-- <div id="SIGNUP_HEADING">Join Our Newsletter</div> -->
+				<div style="position:relative;">
+					<div id="Zc_SignupSuccess" style="display:none;position:absolute;margin-left:4%;width:90%;background-color: white; padding: 3px; border: 3px solid rgb(194, 225, 154);  margin-top: 10px;margin-bottom:10px;word-break:break-all ">
+						<table width="100%" cellspacing="0" cellpadding="0" border="0">
+							<tbody>
+								<tr>
+									<td width="10%">
+										<img class="successicon" src="https://zcsub-cmpzourl.maillist-manage.com/images/challangeiconenable.jpg" align="absmiddle">
+									</td>
+									<td>
+										<span id="signupSuccessMsg" style="color: rgb(73, 140, 132); font-family: sans-serif; font-size: 14px;word-break:break-word">&nbsp;&nbsp;Thank you for Signing Up</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<form method="POST" id="zcampaignOptinForm" action="https://zcsub-cmpzourl.maillist-manage.com/weboptin.zc" target="_zcSignup">
+					<!-- <div id="errorMsgDiv">Please correct the marked field(s) below.</div> -->
+					<!-- <div class="SIGNUP_FLD">
+						<input type="text" placeholder="Name" changeitem="SIGNUP_FORM_FIELD" name="LASTNAME" id="EMBED_FORM_NAME_LABEL">
+					</div> -->
+          <div class="SIGNUP_FLD">
+						<input type="text" placeholder="Email" changeitem="SIGNUP_FORM_FIELD" name="CONTACT_EMAIL" id="EMBED_FORM_EMAIL_LABEL">
+					</div>
+					<div class="SIGNUP_FLD">
+						<input id="subscribe-button" type="button" name="SIGNUP_SUBMIT_BUTTON" id="zcWebOptin" value="Subscribe">
+					</div>
+          <div>No spam, ever. We'll never share your address and you can opt out at any time</div>
+					<input type="hidden" id="fieldBorder" value="">
+					<input type="hidden" id="submitType" name="submitType" value="optinCustomView">
+					<input type="hidden" id="emailReportId" name="emailReportId" value="">
+					<input type="hidden" id="formType" name="formType" value="QuickForm">
+					<input type="hidden" name="zx" id="cmpZuid" value="1300df041">
+					<input type="hidden" name="zcvers" value="3.0">
+					<input type="hidden" name="oldListIds" id="allCheckedListIds" value="">
+					<input type="hidden" id="mode" name="mode" value="OptinCreateView">
+					<input type="hidden" id="zcld" name="zcld" value="">
+					<input type="hidden" id="zctd" name="zctd" value="">
+					<input type="hidden" id="document_domain" value="">
+					<input type="hidden" id="zc_Url" value="zcsub-cmpzourl.maillist-manage.com">
+					<input type="hidden" id="new_optin_response_in" value="0">
+					<input type="hidden" id="duplicate_optin_response_in" value="0">
+					<input type="hidden" name="zc_trackCode" id="zc_trackCode" value="ZCFORMVIEW">
+					<input type="hidden" id="zc_formIx" name="zc_formIx" value="3z342b3a93d283393efdaa180a2ac842e86a26a8e698e9f7562a3662a91314393c">
+					<input type="hidden" id="viewFrom" value="URL_ACTION">
+					<span style="display: none" id="dt_CONTACT_EMAIL">1,true,6,Contact Email,2</span>
+					<span style="display: none" id="dt_FIRSTNAME">1,false,1,First Name,2</span>
+					<span style="display: none" id="dt_LASTNAME">1,false,1,Last Name,2</span>
+				</form>
+			</div>
+		</div>
+	</div>
+	<img src="https://zcsub-cmpzourl.maillist-manage.com/images/spacer.gif" id="refImage" onload="referenceSetter(this)">
+</div>
+<input type="hidden" id="signupFormType" value="QuickForm_Horizontal">
+<div id="zcOptinOverLay" oncontextmenu="return false" style="display:none;text-align: center; background-color: rgb(0, 0, 0); opacity: 0.5; z-index: 100; position: fixed; width: 100%; top: 0px; left: 0px; height: 988px;"></div>
+<div id="zcOptinSuccessPopup" style="display:none;z-index: 9999;width: 800px; height: 40%;top: 84px;position: fixed; left: 26%;background-color: #FFFFFF;border-color: #E6E6E6; border-style: solid; border-width: 1px;  box-shadow: 0 1px 10px #424242;padding: 35px;">
+	<span style="position: absolute;top: -16px;right:-14px;z-index:99999;cursor: pointer;" id="closeSuccess">
+		<img src="https://zcsub-cmpzourl.maillist-manage.com/images/videoclose.png">
+	</span>
+	<div id="zcOptinSuccessPanel"></div>
+</div>
+
+<!--Zoho Campaigns Web-Optin Form Ends Here--></div></div><div class="layout layout_post" id="content-inner"><article id="post"><h1>第 68 期 - 改個 DNS 是要改多久？- Domain 管理的常見問題</h1><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> Created on 2021-02-16</time><div class="article-container" id="post-content"><h2 id="本週專欄"><a href="#本週專欄" class="headerlink" title="本週專欄"></a>本週專欄</h2><h3 id="改個-DNS-是要改多久？-Domain-管理的常見問題"><a href="#改個-DNS-是要改多久？-Domain-管理的常見問題" class="headerlink" title="改個 DNS 是要改多久？- Domain 管理的常見問題"></a><a href="https://medium.com/starbugs/%E9%80%A3-pm-%E4%B9%9F%E6%87%89%E8%A9%B2%E7%9F%A5%E9%81%93%E7%9A%84-dns-%E5%B0%8F%E7%9F%A5%E8%AD%98-d00b43e4fe9a" target="_blank" rel="noopener">改個 DNS 是要改多久？- Domain 管理的常見問題</a></h3><p>身為網路世界的一般使用者或是開發者，其實無時無刻都在使用 DNS 解析位於網址其後的真實運算資源在哪邊，因此當一個網路服務準備上線讓其他人或是服務可以使用前，一定需要先把 DNS 設定好，而這篇文章並沒有要講解 DNS 背後太深入的運行機制，因為自己對於網路底層也不太熟，只有一些堪用的常識而已；最主要是想藉由這篇文章談談自己這幾年來協助相關 DNS 設定時所遇到的常見問題，希望跟我一樣對 DNS 不熟的人看到這篇文章後，可以避免未來犯下一樣錯誤</p>
+<h2 id="星巴哥專欄作者，原創文章"><a href="#星巴哥專欄作者，原創文章" class="headerlink" title="星巴哥專欄作者，原創文章"></a>星巴哥專欄作者，原創文章</h2><h3 id="實作開源小工具，與-Github-Actions-的第一次相遇！"><a href="#實作開源小工具，與-Github-Actions-的第一次相遇！" class="headerlink" title="實作開源小工具，與 Github Actions 的第一次相遇！"></a><a href="https://medium.com/starbugs/%E5%AF%A6%E4%BD%9C%E9%96%8B%E6%BA%90%E5%B0%8F%E5%B7%A5%E5%85%B7-%E8%88%87-github-actions-%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1%E7%9B%B8%E9%81%87-3dd2d70eeb" target="_blank" rel="noopener">實作開源小工具，與 Github Actions 的第一次相遇！</a></h3><h3 id="面試-前端工程師一定要會的-JS-觀念題-中英對照之上篇"><a href="#面試-前端工程師一定要會的-JS-觀念題-中英對照之上篇" class="headerlink" title="[面試] 前端工程師一定要會的 JS 觀念題-中英對照之上篇"></a><a href="https://medium.com/starbugs/%E9%9D%A2%E8%A9%A6-%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%AB%E4%B8%80%E5%AE%9A%E8%A6%81%E6%9C%83%E7%9A%84-js-%E8%A7%80%E5%BF%B5%E9%A1%8C-%E4%B8%AD%E8%8B%B1%E5%B0%8D%E7%85%A7%E4%B9%8B%E4%B8%8A%E7%AF%87-3b0a3feda14f" target="_blank" rel="noopener">[面試] 前端工程師一定要會的 JS 觀念題-中英對照之上篇</a></h3><h3 id="與-Github-Actions-的再次相遇！AWS-S3-CloudFront-自動部署-React-Web-App"><a href="#與-Github-Actions-的再次相遇！AWS-S3-CloudFront-自動部署-React-Web-App" class="headerlink" title="與 Github Actions 的再次相遇！AWS S3 + CloudFront 自動部署 React Web App"></a><a href="https://medium.com/starbugs/%E8%88%87-github-actions-%E7%9A%84%E5%86%8D%E6%AC%A1%E7%9B%B8%E9%81%87-aws-s3-cloudfront-%E8%87%AA%E5%8B%95%E9%83%A8%E7%BD%B2-react-web-app-e2c11942263f" target="_blank" rel="noopener">與 Github Actions 的再次相遇！AWS S3 + CloudFront 自動部署 React Web App</a></h3><h2 id="前端開發"><a href="#前端開發" class="headerlink" title="前端開發"></a>前端開發</h2><h3 id="How-to-Build-a-Hacker-News-Clone-Using-React"><a href="#How-to-Build-a-Hacker-News-Clone-Using-React" class="headerlink" title="How to Build a Hacker News Clone Using React"></a><a href="https://www.freecodecamp.org/news/how-to-build-a-hacker-news-clone-using-react/" target="_blank" rel="noopener">How to Build a Hacker News Clone Using React</a></h3><p>如果有訂閱像 StarBugs 那麼優質的週刊，就應該會聽過有個網頁叫做 <a href="https://news.ycombinator.com/" target="_blank" rel="noopener">Hacker News</a>(就像現在 😂)，而 <a href="https://news.ycombinator.com/" target="_blank" rel="noopener">Hacker News</a> 本身就有在<a href="https://github.com/HackerNews/API" target="_blank" rel="noopener">提供 API 在 GitHub</a> 上，既然又有了現成的網頁可以參考，也能找到開放的 API，不就輪到前端工程師們登場了嗎？文章中的作者就是利用的 <a href="https://github.com/HackerNews/API" target="_blank" rel="noopener">Hacker News 的 API</a>，用 React 寫了一個簡單的 Hacker News！大家也可以試試看哦！ 🙌</p>
+<h3 id="10-Major-UI-UX-Design-Trends-for-2021"><a href="#10-Major-UI-UX-Design-Trends-for-2021" class="headerlink" title="10 Major UI/UX Design Trends for 2021"></a><a href="https://dev.to/codicacom/10-major-ui-ux-design-trends-for-2021-1n1j" target="_blank" rel="noopener">10 Major UI/UX Design Trends for 2021</a></h3><p>又到了部分前端工程師最需要的 UI 火力展示時間了（個人很喜歡看一些漂亮的設計 😂，非常視覺動物），但就像留言區一樓討論的，盲目的 follow 這些設計趨勢是沒有好處的，因為良好的 UI/UX 特性還是要以產品的類型和使用者需求下去設計（術業有專攻的部分）！話說如果看了上方的文章，也想做個 Hacker News，不妨從這篇文章裡挑個喜歡的設計來練練手！</p>
+<h3 id="github1s"><a href="#github1s" class="headerlink" title="github1s"></a><a href="https://github.com/conwnet/github1s" target="_blank" rel="noopener">github1s</a></h3><p>有時候因為在 GitHub 上面太難閱讀程式碼了，總是希望可以在熟悉的介面 Visual Studio Code 中跳來跳去，所以通常都會先 clone 後再慢慢閱讀，而 <a href="https://github.com/conwnet/github1s" target="_blank" rel="noopener">github1s</a> 主打著，只需一秒就能讓你在 VS Code 上閱讀 GitHub 上的程式碼！妳只要在某個 repo 下，把網址的 github 改成 github1s 就可以了，各位一定要試看看！如果覺得每次都要改很麻煩，README.md 最後也有附上一些 Browser 的 extensions 可以更方便使用！</p>
+<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><h3 id="New-aspect-ratio-CSS-property"><a href="#New-aspect-ratio-CSS-property" class="headerlink" title="New aspect-ratio CSS property"></a><a href="https://web.dev/aspect-ratio/?fbclid=IwAR2y11dK1vANSdGFDxAShFV7gfKgk8s4EoaUklHtdO45FXgC1ABwmxXgv1k" target="_blank" rel="noopener">New aspect-ratio CSS property</a></h3><p>當初看到這篇文章的時候真的蠻興奮的，以往要寫一個 aspect-ratio box 必須要自己去設定 <code>padding-bottom</code>，例如 <code>padding-bottom: 56.25%</code> 代表 16:9 的比例，但這個真的有夠不直觀直到今日我還是要上網查一下各個比例的 aspect-ratio 值，但現在 CSS3 直接產生一個新的屬性叫 <code>aspect-ratio</code> 透過這篇文章一起來看看新的屬性有什麼功能吧！</p>
+<blockquote>
+<p>P.S. 目前這個屬性瀏覽器支援度還是比較低，不建議現在進行轉換，想知道這個屬性目前瀏覽器的支援度可以點擊<a href="https://caniuse.com/?search=aspect-ratio" target="_blank" rel="noopener">這裡</a></p>
+</blockquote>
+<h3 id="background-image-vs-html-img-tag"><a href="#background-image-vs-html-img-tag" class="headerlink" title="background-image vs html img tag"></a><a href="https://buildawesomewebsites.com/html-img-vs-css-background-image/" target="_blank" rel="noopener">background-image vs html img tag</a></h3><p>這是個蠻有趣的議題，到底是 html tag 中的 <code>&lt;img /&gt;</code> 效能好還是 CSS 屬性的 <code>background-image</code> 效能好？兩者都可以達到一樣的視覺效果但背後的做法完全不同，這篇文章解釋了兩者的差異，有興趣的讀者不妨可以看一下增加一些冷知識XD</p>
+<h3 id="BEM"><a href="#BEM" class="headerlink" title="BEM"></a><a href="https://cythilya.github.io/2018/05/22/bem/" target="_blank" rel="noopener">BEM</a></h3><p>之前在寫網頁的時候都會覺得 <code>className</code> 的命名很難理解元素跟元素之間的關聯性，很常把一些不相關的 <code>className</code> 濫用導致最後程式碼難以理解，因此有一大段時間自己都是用 <code>styled-component</code> 或 <code>inline-style</code> 的方式解決這個問題，但缺點就是很難重複利用，直到認識了 <a href="http://getbem.com/introduction/" target="_blank" rel="noopener">BEM</a> 才徹底的解決了上面的問題，透過這篇文章讓大家可以更了解 <code>className</code> 的命名規則該如何設計會比較直觀～</p>
+<h2 id="Elastic-Search"><a href="#Elastic-Search" class="headerlink" title="Elastic Search"></a>Elastic Search</h2><h3 id="An-Elasticsearch-Tutorial-Getting-Started"><a href="#An-Elasticsearch-Tutorial-Getting-Started" class="headerlink" title="An Elasticsearch Tutorial: Getting Started"></a><a href="https://logz.io/blog/elasticsearch-tutorial/" target="_blank" rel="noopener">An Elasticsearch Tutorial: Getting Started</a></h3><p>Elastic Search 是一個開源的分散式搜尋引擎，很擅長對資料做搜尋以及分析，而且還支援使用 RESTful API 進行 query，所以從 2010 年發佈到現在已經有非常大量的使用者。如果想入門的話這邊有一篇文章教你怎麼把 Elastic Search 跑起來，然後用 RESTful API 去進行 CRUD，很簡單的一篇文章～</p>
+<h3 id="Install-Elasticsearch-with-Docker"><a href="#Install-Elasticsearch-with-Docker" class="headerlink" title="Install Elasticsearch with Docker"></a><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html" target="_blank" rel="noopener">Install Elasticsearch with Docker</a></h3><p>如果看完上面那篇文章，覺得要把 Elastic Search 裝在自己電腦上太髒太麻煩的話，可以參考這份官方文件，文件中已經把 single node cluster 跟 multi-node cluster 所需的參數都設定好了，只要把 docker 裝好，然後跑他給的指令，就可以馬上開始使用 Elastic Search 了～</p>
+<h3 id="我的-ElasticSearch-進化之旅"><a href="#我的-ElasticSearch-進化之旅" class="headerlink" title="我的 ElasticSearch 進化之旅"></a><a href="https://medium.com/starbugs/%E6%88%91%E7%9A%84-elasticsearch-log-%E6%94%B6%E9%9B%86%E4%B9%8B%E6%97%85-39016c3b9a29" target="_blank" rel="noopener">我的 ElasticSearch 進化之旅</a></h3><p>說到 Elastic Search 就不得不推一下小城哥的文章，對於 ES 使用者來說要怎麼把 ES 的狀態調整到最好，並且盡量降低花費是很重要的。所以這篇文章中小城哥分享了他架設 Elastic Search 的四個階段，用一句話來總結就是如何讓花費越來越低</p>
+<h2 id="DevOps"><a href="#DevOps" class="headerlink" title="DevOps"></a>DevOps</h2><h3 id="Scaling-Kubernetes-to-7-500-Nodes"><a href="#Scaling-Kubernetes-to-7-500-Nodes" class="headerlink" title="Scaling Kubernetes to 7,500 Nodes"></a><a href="https://openai.com/blog/scaling-kubernetes-to-7500-nodes/" target="_blank" rel="noopener">Scaling Kubernetes to 7,500 Nodes</a></h3><p>OpenAI 常會使用 Kubernetes 叢集來幫忙協助訓練機器學習模型，繼之前把單一 K8s 叢集擴展到 2500 個節點之後，這次變本加厲擴展到 7500 個節點，並把學習到的經驗以及為解決的問題透過這篇文章記錄下來回饋給社群</p>
+<h3 id="How-to-setup-Kafka-cluster-for-15K-events-per-second-on-AWS-using-Docker"><a href="#How-to-setup-Kafka-cluster-for-15K-events-per-second-on-AWS-using-Docker" class="headerlink" title="How to setup Kafka cluster for 15K events per second on AWS using Docker"></a><a href="https://itnext.io/how-to-setup-kafka-cluster-for-15k-events-per-second-on-aws-using-docker-d34539873589" target="_blank" rel="noopener">How to setup Kafka cluster for 15K events per second on AWS using Docker</a></h3><p>在這篇文章中作者詳細的手把手紀錄在 AWS 中要如何使用 Docker 架設出可以承受與處理每秒<strong>一萬五千個訊息</strong> (每個訊息為 1KB 左右) 的 Kafka 和 Zookeeper 叢集，而且還有考量到 HA 和監控機制！</p>
+<h3 id="iamlive-Generate-a-basic-IAM-policy-from-AWS-client-side-monitoring"><a href="#iamlive-Generate-a-basic-IAM-policy-from-AWS-client-side-monitoring" class="headerlink" title="iamlive: Generate a basic IAM policy from AWS client-side monitoring"></a><a href="https://github.com/iann0036/iamlive" target="_blank" rel="noopener">iamlive: Generate a basic IAM policy from AWS client-side monitoring</a></h3><p>這次要來介紹的工具專案叫做 iamlive，它還滿酷的，它利用 AWS client-side monitoring 的功能，<strong>讓使用者在操作 AWS 的時候，自動把對應到該操作行爲的 IAM Policy 給產生出來</strong>，如此一來維運人員不用再慢慢地去手動把 IAM Policy 給刻出來</p>
+<h2 id="StarBugs-Weekly"><a href="#StarBugs-Weekly" class="headerlink" title="StarBugs Weekly"></a>StarBugs Weekly</h2><p>StarBugs Weekly 由一群不寫文章就會想要亂花錢，但是又沒有那麼多錢，只好繼續寫文章的開發者所創立。<br>內容包含 Web 前端、中端、後端、DevOps、產品開發、精實創業，一切跟產品有關的知識，都是我們的守備範圍！</p>
+<p>Writers:</p>
+<ul>
+<li><a href="https://medium.com/@hannahlin" target="_blank" rel="noopener">@HannahLin</a> - 從台灣到矽谷，熱愛前端的工程師女孩。</li>
+<li><a href="https://oldmo860617.medium.com/" target="_blank" rel="noopener">@Kyle老莫</a> - 無法忍受自己一天不進步的熱血社會菜雞。</li>
+<li><a href="https://medium.com/@airwaves" target="_blank" rel="noopener">@Airwaves</a> - Hi~我是 Airwaves，熱愛研究如何造輪子的前端工程師。</li>
+<li><a href="https://medium.com/@jinghua.shih" target="_blank" rel="noopener">@Jenny</a> - 我不寫 CSS。</li>
+</ul>
+<p>Curators:</p>
+<ul>
+<li><a href="https://medium.com/@w5151381guy" target="_blank" rel="noopener">@Andy</a> - 目標成為用嘴巴工作的工程師，專長為網頁開發以及 K8s。</li>
+</ul>
+<p>Maintainers:</p>
+<ul>
+<li><a href="https://medium.com/@gqsm" target="_blank" rel="noopener">@GQSM</a> - Hi！我是神 Q 超人，一個先衝再說的男人。</li>
+<li><a href="https://larry850806.medium.com" target="_blank" rel="noopener">@Larry850806</a> - 我是 Larry，傳說中的 0.1 倍工程師！</li>
+<li><a href="https://medium.com/@LukaTW" target="_blank" rel="noopener">@LukaTW</a> - 一名全身都是死角的工程師。</li>
+<li><a href="https://medium.com/@smalltown" target="_blank" rel="noopener">@smalltown</a> - 熱愛鑽研各種可以提升雲端服務品質及增進團隊開發效率的開源技術。</li>
+</ul>
+<h2 id="Feedback"><a href="#Feedback" class="headerlink" title="Feedback"></a>Feedback</h2><p>本週呈現主題方式做了一些改變，希望讓讀者能夠更快速精準的找到自己要的資訊。也加入社群活動這個區塊，每週更新社群活動的資訊。如果有任何建議，歡迎私訊 <a href="https://www.facebook.com/StarBugsWeekly/" target="_blank" rel="noopener">星巴哥技術週刊 FB 粉絲專頁</a> 與我們聯繫。</p>
+</div></article><nav class="pagination_post" id="pagination"><div class="prev-post pull-left"><a href="/2021/02/23/69-back-to-school-without-doing-homework/"><img class="prev_cover lozad" data-src="/img/069cover.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Previous Post</div><div class="prev_info"><span>第 69 期 - 開學了才發現有寒假作業</span></div></a></div><div class="next-post pull-right"><a href="/2021/02/09/67-happy-chinses-new-year-2021/"><img class="next_cover lozad" data-src="/img/067cover.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Next Post</div><div class="next_info"><span>第 67 期 - 歡天喜地，東隆東隆鏹</span></div></a></div></nav></div></div><footer style="background-image: url(/img/banner.jpeg)"><div id="footer"><div class="copyright">&copy;2019 - 2023 By StarBugs Weekly Editors</div></div></footer></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/nightshift.js"></script><script color="0,0,255" opacity="0.7" zIndex="-1" count="39" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN/js/canvas-nest.js"></script><script src="/js/tw_cn.js"></script><script>translateInitilization()
+</script><script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script><script>const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+observer.observe();
+</script><script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1691460553344')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body></html>

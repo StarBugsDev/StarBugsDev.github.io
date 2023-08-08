@@ -1,0 +1,190 @@
+<!DOCTYPE html><html><head><link rel=manifest href=/manifest.json><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>第 65 期 - 每天都 git pull，conflict 遠離我 | StarBugs Weekly 星巴哥技術週刊</title><meta name="description" content="第 65 期 - 每天都 git pull，conflict 遠離我"><meta name="keywords" content=""><meta name="author" content="StarBugs Weekly Editors"><meta name="copyright" content="StarBugs Weekly Editors"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="canonical" href="https://starbugs.dev/2021/01/26/65-remember-to-git-pull-every-day/"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="第 65 期 - 每天都 git pull，conflict 遠離我"><meta name="twitter:description" content="第 65 期 - 每天都 git pull，conflict 遠離我"><meta name="twitter:image" content="https://starbugs.dev/img/065cover.jpg"><meta property="og:type" content="article"><meta property="og:title" content="第 65 期 - 每天都 git pull，conflict 遠離我"><meta property="og:url" content="https://starbugs.dev/2021/01/26/65-remember-to-git-pull-every-day/"><meta property="og:site_name" content="StarBugs Weekly 星巴哥技術週刊"><meta property="og:description" content="第 65 期 - 每天都 git pull，conflict 遠離我"><meta property="og:image" content="https://starbugs.dev/img/065cover.jpg"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="prev" title="第 66 期 - 我的心已經在年假上了" href="https://starbugs.dev/2021/02/02/66-my-heart-is-already-living-the-new-year-vacation/"><link rel="next" title="第 64 期 - 利用 Flux2 為 Kubernetes 達成 Configuration Management" href="https://starbugs.dev/2021/01/19/64-flux2/"><link rel="dns-prefetch" href="https://www.google-analytics.com"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-151536743-1', 'auto');
+ga('send', 'pageview');
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://xxx/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight_copy: 'false',
+  highlight_lang: 'true',
+  highlight_shrink: 'false',
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  bookmark: {
+    title: 'Bookmark',
+    message_prev: 'Press',
+    message_next: 'to bookmark this page'
+  },
+  runtime_unit: 'days',
+  copyright: undefined,
+  copy_copyright_js: false
+  
+}</script><link rel="alternate" href="/atom.xml" title="StarBugs Weekly 星巴哥技術週刊" type="application/atom+xml">
+</head><body><div id="header"> <div id="page-header"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">StarBugs Weekly 星巴哥技術週刊</a></span><i class="fa fa-bars fa-fw toggle-menu pull-right close" aria-hidden="true"></i><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="https://medium.com/starbugs" target="_blank" rel="noopener"><i class="fa-fw fa fa-medium"></i><span> 技術專欄</span></a></div><div class="menus_item"><a class="site-page" href="https://www.facebook.com/starbugsweekly" target="_blank" rel="noopener"><i class="fa-fw fa fa-facebook"></i><span> 粉絲專頁</span></a></div><div class="menus_item"><a class="site-page" href="/atom.xml"><i class="fa-fw fa fa-rss"></i><span> RSS</span></a></div><script>document.body.addEventListener('touchstart', function(){ });</script></div></span><span class="pull-right" id="search_button"></span></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="lozad avatar_img" src="/img/logo.jpg" onerror="onerror=null;src='/img/friend_404.gif'"></div><div class="mobile_post_data"><div class="mobile_data_item is_center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">Articles</div><div class="length_num">180</div></a></div></div><div class="mobile_data_item is_center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">Tags</div><div class="length_num">2</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="https://medium.com/starbugs" target="_blank" rel="noopener"><i class="fa-fw fa fa-medium"></i><span> 技術專欄</span></a></div><div class="menus_item"><a class="site-page" href="https://www.facebook.com/starbugsweekly" target="_blank" rel="noopener"><i class="fa-fw fa fa-facebook"></i><span> 粉絲專頁</span></a></div><div class="menus_item"><a class="site-page" href="/atom.xml"><i class="fa-fw fa fa-rss"></i><span> RSS</span></a></div><script>document.body.addEventListener('touchstart', function(){ });</script></div></div></div><div id="body-wrap"><div id="content-outer"><div class="full_page" id="nav"><div class="nav_bg" style="background-image: url(/img/banner.jpeg)"></div><div id="site-info"><div id="site-title"><span class="blogtitle"><img class="bannerLogo" src="/img/logo.png"></span><!--= page.title || page.tag || page.category || config.title--></div><div id="site-sub-title" style="display: flex;justify-content: center;"><span class="subtitle" style="width: 75%; max-width: 900px;">StarBugs Weekly 由一群在星空般的 Bug 中求生存的開發者所創立的週刊。每週二我們會撰寫一篇原創文章與蒐集一系列國內外的好文與大家分享。內容包含 Web 前端、後端、DevOps、產品開發、專案管理 ... 等等，一切跟產品開發有關的知識。</span></div><div id="site-social-icons"><a class="social-icon" href="https://www.facebook.com/starbugsweekly" target="_blank"><i class="fa fa-facebook"></i></a><a class="social-icon" href="https://medium.com/starbugs" target="_blank"><i class="fa fa-medium"></i></a><a class="social-icon" href="/atom.xml" target="_blank"><i class="fa fa-rss"></i></a></div></div><div class="scroll-down"><i class="fa fa-angle-down scroll-down-effects"></i></div><div class="subscription"><span>SUBSCRIBE WITH MAIL</span><!--Zoho Campaigns Web-Optin Form Starts Here-->
+<script type="text/javascript" src="https://zcsub-cmpzourl.maillist-manage.com/js/optin.min.js" onload="setupSF('sf3z342b3a93d283393efdaa180a2ac842e86a26a8e698e9f7562a3662a91314393c','ZCFORMVIEW',false,'light',false,'0')"></script>
+<script type="text/javascript">
+	function runOnFormSubmit_sf3z342b3a93d283393efdaa180a2ac842e86a26a8e698e9f7562a3662a91314393c(th){
+		/*Before submit, if you want to trigger your event, "include your code here"*/
+	};
+</script>
+<style>
+  .SIGNUP_FLD {
+    display: inline-block;
+  }
+  #subscribe-button {
+    font-size: 13px;
+    border: none;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    letter-spacing: .03em;
+    color: #fff;
+    background: #E35751;
+    box-sizing: border-box;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 18px;
+    display: inline-block;
+    margin: 0;
+    transition: all 0.23s ease-in-out 0s;
+  }
+  #EMBED_FORM_EMAIL_LABEL, #EMBED_FORM_NAME_LABEL {
+    font-family: "Open Sans","Helvetica Neue",Arial,Helvetica,Verdana,sans-serif;
+    font-size: 15px;
+    border: 1px solid #ABB0B2;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color: #343434;
+    background-color: #fff;
+    box-sizing: border-box;
+    height: 32px;
+    padding: 0px 0.4em;
+    display: inline-block;
+    margin: 0;
+    width: 250px;
+    vertical-align: middle;
+  }
+  #EMBED_FORM_NAME_LABEL{
+    width: 100px;
+  }
+</style>
+
+<div id="sf3z342b3a93d283393efdaa180a2ac842e86a26a8e698e9f7562a3662a91314393c" data-type="signupform">
+	<div id="customForm">
+		<div class="quick_form_5_css" name="SIGNUP_BODY">
+			<div>
+				<!-- <div id="SIGNUP_HEADING">Join Our Newsletter</div> -->
+				<div style="position:relative;">
+					<div id="Zc_SignupSuccess" style="display:none;position:absolute;margin-left:4%;width:90%;background-color: white; padding: 3px; border: 3px solid rgb(194, 225, 154);  margin-top: 10px;margin-bottom:10px;word-break:break-all ">
+						<table width="100%" cellspacing="0" cellpadding="0" border="0">
+							<tbody>
+								<tr>
+									<td width="10%">
+										<img class="successicon" src="https://zcsub-cmpzourl.maillist-manage.com/images/challangeiconenable.jpg" align="absmiddle">
+									</td>
+									<td>
+										<span id="signupSuccessMsg" style="color: rgb(73, 140, 132); font-family: sans-serif; font-size: 14px;word-break:break-word">&nbsp;&nbsp;Thank you for Signing Up</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<form method="POST" id="zcampaignOptinForm" action="https://zcsub-cmpzourl.maillist-manage.com/weboptin.zc" target="_zcSignup">
+					<!-- <div id="errorMsgDiv">Please correct the marked field(s) below.</div> -->
+					<!-- <div class="SIGNUP_FLD">
+						<input type="text" placeholder="Name" changeitem="SIGNUP_FORM_FIELD" name="LASTNAME" id="EMBED_FORM_NAME_LABEL">
+					</div> -->
+          <div class="SIGNUP_FLD">
+						<input type="text" placeholder="Email" changeitem="SIGNUP_FORM_FIELD" name="CONTACT_EMAIL" id="EMBED_FORM_EMAIL_LABEL">
+					</div>
+					<div class="SIGNUP_FLD">
+						<input id="subscribe-button" type="button" name="SIGNUP_SUBMIT_BUTTON" id="zcWebOptin" value="Subscribe">
+					</div>
+          <div>No spam, ever. We'll never share your address and you can opt out at any time</div>
+					<input type="hidden" id="fieldBorder" value="">
+					<input type="hidden" id="submitType" name="submitType" value="optinCustomView">
+					<input type="hidden" id="emailReportId" name="emailReportId" value="">
+					<input type="hidden" id="formType" name="formType" value="QuickForm">
+					<input type="hidden" name="zx" id="cmpZuid" value="1300df041">
+					<input type="hidden" name="zcvers" value="3.0">
+					<input type="hidden" name="oldListIds" id="allCheckedListIds" value="">
+					<input type="hidden" id="mode" name="mode" value="OptinCreateView">
+					<input type="hidden" id="zcld" name="zcld" value="">
+					<input type="hidden" id="zctd" name="zctd" value="">
+					<input type="hidden" id="document_domain" value="">
+					<input type="hidden" id="zc_Url" value="zcsub-cmpzourl.maillist-manage.com">
+					<input type="hidden" id="new_optin_response_in" value="0">
+					<input type="hidden" id="duplicate_optin_response_in" value="0">
+					<input type="hidden" name="zc_trackCode" id="zc_trackCode" value="ZCFORMVIEW">
+					<input type="hidden" id="zc_formIx" name="zc_formIx" value="3z342b3a93d283393efdaa180a2ac842e86a26a8e698e9f7562a3662a91314393c">
+					<input type="hidden" id="viewFrom" value="URL_ACTION">
+					<span style="display: none" id="dt_CONTACT_EMAIL">1,true,6,Contact Email,2</span>
+					<span style="display: none" id="dt_FIRSTNAME">1,false,1,First Name,2</span>
+					<span style="display: none" id="dt_LASTNAME">1,false,1,Last Name,2</span>
+				</form>
+			</div>
+		</div>
+	</div>
+	<img src="https://zcsub-cmpzourl.maillist-manage.com/images/spacer.gif" id="refImage" onload="referenceSetter(this)">
+</div>
+<input type="hidden" id="signupFormType" value="QuickForm_Horizontal">
+<div id="zcOptinOverLay" oncontextmenu="return false" style="display:none;text-align: center; background-color: rgb(0, 0, 0); opacity: 0.5; z-index: 100; position: fixed; width: 100%; top: 0px; left: 0px; height: 988px;"></div>
+<div id="zcOptinSuccessPopup" style="display:none;z-index: 9999;width: 800px; height: 40%;top: 84px;position: fixed; left: 26%;background-color: #FFFFFF;border-color: #E6E6E6; border-style: solid; border-width: 1px;  box-shadow: 0 1px 10px #424242;padding: 35px;">
+	<span style="position: absolute;top: -16px;right:-14px;z-index:99999;cursor: pointer;" id="closeSuccess">
+		<img src="https://zcsub-cmpzourl.maillist-manage.com/images/videoclose.png">
+	</span>
+	<div id="zcOptinSuccessPanel"></div>
+</div>
+
+<!--Zoho Campaigns Web-Optin Form Ends Here--></div></div><div class="layout layout_post" id="content-inner"><article id="post"><h1>第 65 期 - 每天都 git pull，conflict 遠離我</h1><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> Created on 2021-01-26</time><div class="article-container" id="post-content"><h2 id="本週專欄"><a href="#本週專欄" class="headerlink" title="本週專欄"></a>本週專欄</h2><h3 id="送-PR-前，使用-Git-rebase-來整理你的-commit-吧！"><a href="#送-PR-前，使用-Git-rebase-來整理你的-commit-吧！" class="headerlink" title="送 PR 前，使用 Git rebase 來整理你的 commit 吧！"></a><a href="https://medium.com/starbugs/use-git-interactive-rebase-to-organize-commits-85e692b46dd" target="_blank" rel="noopener">送 PR 前，使用 Git rebase 來整理你的 commit 吧！</a></h3><p>大家好我是 Larry，因為我身邊有滿多朋友都不太熟悉 git rebase，也不知道他可以用來做什麼。所以這週的專欄想跟大家分享怎麼用 git rebase 來整理 commit，希望大家在看完後都能在 push 前把 commit 都整理好，才不會讓同事 review 得很痛苦XD</p>
+<h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><h3 id="The-anatomy-of-a-Git-commit"><a href="#The-anatomy-of-a-Git-commit" class="headerlink" title="The anatomy of a Git commit"></a><a href="https://blog.thoughtram.io/git/2014/11/18/the-anatomy-of-a-git-commit.html" target="_blank" rel="noopener">The anatomy of a Git commit</a></h3><p>這週的專欄中有提到，commit ID 是由 commit message 還有其他很多屬性經過 hash 而來的，那一個 Git commit 內部到底究竟長什麼樣子？每個 Git commit 的 ID 又是根據哪些屬性產生出來？雖然不知道好像也沒關係，但當作冷知識增廣見聞一下也是不錯～</p>
+<h3 id="另一種合併方式（使用-rebase）"><a href="#另一種合併方式（使用-rebase）" class="headerlink" title="另一種合併方式（使用 rebase）"></a><a href="https://gitbook.tw/chapters/branch/merge-with-rebase.html" target="_blank" rel="noopener">另一種合併方式（使用 rebase）</a></h3><p>想要把兩個 branch 合併，除了可以使用 merge 之外，其實 rebase 也可以用來合併 branch，而且如果用得好的話，歷史紀錄也會比 merge 漂亮很多哦～</p>
+<h3 id="合併發生衝突了，怎麼辦？"><a href="#合併發生衝突了，怎麼辦？" class="headerlink" title="合併發生衝突了，怎麼辦？"></a><a href="https://gitbook.tw/chapters/branch/fix-conflict.html" target="_blank" rel="noopener">合併發生衝突了，怎麼辦？</a></h3><p>因為 rebase 的結果會跟 branch 當下的狀態以及 commit 的順序有關，所以當然也有可能發生 conflict，那 rebase 到一半因為 conflict 而卡住究竟要怎麼辦呢？快來看看龍哥的解法吧！</p>
+<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><h3 id="lodash-get-vs-result"><a href="#lodash-get-vs-result" class="headerlink" title="lodash get vs result"></a><a href="https://appi2393.medium.com/lodash-get-or-result-f409e73e018b" target="_blank" rel="noopener">lodash get vs result</a></h3><p>lodash 是個非常好用的 JS Library 裡面提供了非常多的 method 讓開發者可以讓程式碼寫起來更好閱讀而且也有一定的效能在，裡面有兩個非常像的 method：<code>get</code> 以及 <code>result</code> 到底這兩個 method 要用哪呢？其實這兩個 method 有效能上的差距，這篇文章講述了兩個 method 的效能差別（懶人包以後用 <code>get</code> 取得物件的值就對了🤣）</p>
+<h3 id="firebase-remote-config-fetcher"><a href="#firebase-remote-config-fetcher" class="headerlink" title="firebase remote config fetcher"></a><a href="https://firebase.google.com/docs/remote-config/loading" target="_blank" rel="noopener">firebase remote config fetcher</a></h3><p>不知道大家有沒有用過 firebase，firebase 有個非常好用的功能叫 remote config，透過這個 remote config 可以讓一些 constant 不用在程式碼中寫死會非常彈性，裡面有一個 method 是 <code>fetchAndActivate</code> 可以讓 remote config 在 fetch 的時候順便 activate，但這個的使用時機是什麼時候呢？官方給出了一些使用時機不妨可以看看～</p>
+<h3 id="JS-get-last-element-of-an-array"><a href="#JS-get-last-element-of-an-array" class="headerlink" title="JS get last element of an array"></a><a href="https://www.codeblocq.com/2016/05/Get-the-last-element-of-an-Array-in-JavaScript/" target="_blank" rel="noopener">JS get last element of an array</a></h3><p>最近在找一些 JS 比較 tricky 的技巧來取得 JS 陣列中的最後一個元素，比較直觀的作法就是取得 <code>陣列長度 -1</code> 的元素就是最後一個元素了，但其實還有另一個作法就是 <code>slice(-1)</code>，透過 <code>slice(-1)</code> 就並且做陣列解構後可以取得陣列的最後一個元素，但兩者到底有什麼區別呢？這篇文章完整的告訴這兩個方法的效能差異。</p>
+<h2 id="前端開發"><a href="#前端開發" class="headerlink" title="前端開發"></a>前端開發</h2><h3 id="How-To-Implement-a-Queue-in-JavaScript-–-and-Beat-Arrays-at-Their-Own-Game"><a href="#How-To-Implement-a-Queue-in-JavaScript-–-and-Beat-Arrays-at-Their-Own-Game" class="headerlink" title="How To Implement a Queue in JavaScript – and Beat Arrays at Their Own Game"></a><a href="https://popovich.io/2020/2020-04-07-queue-javascript/" target="_blank" rel="noopener">How To Implement a Queue in JavaScript – and Beat Arrays at Their Own Game</a></h3><p>相信各位前端的大家在用 JavaScript 解 Leetcode 演算法的時候，常常會遇到沒有現成的資料結構可以使用，像是 Queue 或是 Stack 等等，但其實他們的原理非常簡單！非常容易就可以依照概念實作出來，但實作出來後又會發現好像用 JavaScript 原生的 Array 搭配 Array Method 也能達到相同的效果。那這兩這之間到底有什麼不同，到底需不需要自己實作一個？一起看看這篇文章！（延伸閱讀：<a href="https://blog.techbridge.cc/2016/06/24/javascript-data-structure-algorithm-stack/" target="_blank" rel="noopener">用 JavaScript 學習資料結構和演算法：堆疊（Stack）篇</a>）</p>
+<h3 id="ES2021-ES12-New-Features"><a href="#ES2021-ES12-New-Features" class="headerlink" title="ES2021 / ES12 New Features"></a><a href="https://backbencher.dev/javascript/es2021-new-features" target="_blank" rel="noopener">ES2021 / ES12 New Features</a></h3><p>在你的印象中，現在的 JavaScript 是 ES 多少呢？已經進入到 ES12 啦！JavaScript 作為最常被使用的程式語言語言（根據 <a href="https://insights.stackoverflow.com/survey/2020" target="_blank" rel="noopener">2020 StackOverflow</a> 調查），更新速度真的越來越快，自從 2016 年的 ES6 就開始一年一更（可參考 <a href="https://zh.wikipedia.org/wiki/ECMAScript" target="_blank" rel="noopener">ECMAScript 維基百科</a>），依照慣例相信今年年中就能開始使用新的語法了，快點進去確認有哪些功能是你期待許久的 🙌！</p>
+<h3 id="10-Colour-Resources-You-Will-Love"><a href="#10-Colour-Resources-You-Will-Love" class="headerlink" title="10 Colour Resources You Will Love"></a><a href="https://dev.to/marcelcruz/10-colour-resources-you-will-love-26lp" target="_blank" rel="noopener">10 Colour Resources You Will Love</a></h3><p>在做 Side Project 的時候總覺得自己的網頁少了一點點…美感？特別是在最一開始無法決定網頁的主題色，或是很快的找到主題色卻不曉得可以和哪些色彩搭配產生更棒或更舒服的的視覺效果嗎？別緊張！讓專業的來！個人先私心推薦一個 <a href="https://colorhunt.co/" target="_blank" rel="noopener">Color Hunt</a>，常常讓我在 RGB 的世界中迷路時給我正確的方向（雖然也常常讓我產生選擇性障礙，每個都太好看了 😂）。如果你不喜歡，沒關係！上方的推薦文章還介紹了另外九個相當棒的色彩搭配網頁！其中一定會有你的 Mr.Right!</p>
+<h2 id="DevOps"><a href="#DevOps" class="headerlink" title="DevOps"></a>DevOps</h2><h3 id="This-Week-in-Programming-Elasticsearch-Turns-AWS-into-an-Open-Source-Champion"><a href="#This-Week-in-Programming-Elasticsearch-Turns-AWS-into-an-Open-Source-Champion" class="headerlink" title="This Week in Programming: Elasticsearch Turns AWS into an Open Source Champion"></a><a href="https://thenewstack.io/this-week-in-programming-elasticsearch-turns-aws-into-the-open-source-champion/" target="_blank" rel="noopener">This Week in Programming: Elasticsearch Turns AWS into an Open Source Champion</a></h3><p>這週 Elastic 和 AWS 隔空交戰的炮火越演越烈，首先是 Elastic <a href="https://www.elastic.co/blog/licensing-change" target="_blank" rel="noopener">宣布要更改其授權政策</a>，再引起社群的廣泛討論之後，又發了<a href="https://www.elastic.co/blog/license-change-clarification" target="_blank" rel="noopener">一篇文章來澄清為什麼要這樣做</a>，並且<a href="https://www.elastic.co/blog/why-license-change-AWS" target="_blank" rel="noopener">再發一篇文章挑明跟大家講就是為了防堵 AWS</a>；而 AWS 也不能再裝死，<a href="https://aws.amazon.com/tw/blogs/opensource/stepping-up-for-a-truly-open-source-elasticsearch/" target="_blank" rel="noopener">宣布要自己來建立和維護以 Apache 2.0 授權的開源Elasticsearch 與 Kibana</a>，同時也抨擊 Elastic 接下來採用 SSPL 根本就不算是開源，而這場火從 2019 便開始燒了起來，並且越演越烈，以後兩邊各自維護自己的分支，不知道干戈會不會暫時平息，而大家會使用哪一邊維護的版本呢？！</p>
+<h3 id="K3s-Private-Cluster"><a href="#K3s-Private-Cluster" class="headerlink" title="K3s Private Cluster"></a><a href="https://github.com/sagittaros/terraform-k3s-private-cloud" target="_blank" rel="noopener">K3s Private Cluster</a></h3><p>發現一個有趣的小專案，讓使用者可以使用 Terraform 將 K3s Cluster 架設於 AWS 中，提供給覺得 EKS 太貴太複雜，而且只想要運行一兩個小應用服務的人，也很適合拿來當作開發和測試環境</p>
+<h3 id="Keeping-Git-Commit-Messages-Consistent-with-a-Custom-Template"><a href="#Keeping-Git-Commit-Messages-Consistent-with-a-Custom-Template" class="headerlink" title="Keeping Git Commit Messages Consistent with a Custom Template"></a><a href="https://dev.to/timmybytes/keeping-git-commit-messages-consistent-with-a-custom-template-1jkm" target="_blank" rel="noopener">Keeping Git Commit Messages Consistent with a Custom Template</a></h3><p>讓 Git Commit 訊息保持一致化，將會讓自己與與合作的團隊間擁有長期良好的合作關係；如果自己希望 Commit 的訊息可以擁有像樣一點的格式，或是完全看不懂自己過去提交的 Commit 訊息在寫什麼的話，這篇文章介紹如何透過 Git 的全域組態來設定 Commit 訊息的範本，讓你可以輕鬆地決定如何格式化 Commit 訊息，讓有所有的 Commit 井然有序</p>
+<h2 id="StarBugs-Weekly"><a href="#StarBugs-Weekly" class="headerlink" title="StarBugs Weekly"></a>StarBugs Weekly</h2><p>StarBugs Weekly 由一群不寫文章就會想要亂花錢，但是又沒有那麼多錢，只好繼續寫文章的開發者所創立。<br>內容包含 Web 前端、中端、後端、DevOps、產品開發、精實創業，一切跟產品有關的知識，都是我們的守備範圍！</p>
+<p>Writers:</p>
+<ul>
+<li><a href="https://medium.com/@hannahlin" target="_blank" rel="noopener">@HannahLin</a> - 從台灣到矽谷，熱愛前端的工程師女孩。</li>
+<li><a href="https://oldmo860617.medium.com/" target="_blank" rel="noopener">@Kyle老莫</a> - 無法忍受自己一天不進步的熱血社會菜雞。</li>
+<li><a href="https://medium.com/@airwaves" target="_blank" rel="noopener">@Airwaves</a> - Hi~我是 Airwaves，熱愛研究如何造輪子的前端工程師。</li>
+<li><a href="https://medium.com/@jinghua.shih" target="_blank" rel="noopener">@Jenny</a> - 我不寫 CSS。</li>
+</ul>
+<p>Curators:</p>
+<ul>
+<li><a href="https://medium.com/@w5151381guy" target="_blank" rel="noopener">@Andy</a> - 目標成為用嘴巴工作的工程師，專長為網頁開發以及 K8s。</li>
+</ul>
+<p>Maintainers:</p>
+<ul>
+<li><a href="https://medium.com/@gqsm" target="_blank" rel="noopener">@GQSM</a> - Hi！我是神 Q 超人，一個先衝再說的男人。</li>
+<li><a href="https://larry850806.medium.com" target="_blank" rel="noopener">@Larry850806</a> - 我是 Larry，傳說中的 0.1 倍工程師！</li>
+<li><a href="https://medium.com/@LukaTW" target="_blank" rel="noopener">@LukaTW</a> - 一名全身都是死角的工程師。</li>
+<li><a href="https://medium.com/@smalltown" target="_blank" rel="noopener">@smalltown</a> - 熱愛鑽研各種可以提升雲端服務品質及增進團隊開發效率的開源技術。</li>
+</ul>
+<h2 id="Feedback"><a href="#Feedback" class="headerlink" title="Feedback"></a>Feedback</h2><p>本週呈現主題方式做了一些改變，希望讓讀者能夠更快速精準的找到自己要的資訊。也加入社群活動這個區塊，每週更新社群活動的資訊。如果有任何建議，歡迎私訊 <a href="https://www.facebook.com/StarBugsWeekly/" target="_blank" rel="noopener">星巴哥技術週刊 FB 粉絲專頁</a> 與我們聯繫。</p>
+</div></article><nav class="pagination_post" id="pagination"><div class="prev-post pull-left"><a href="/2021/02/02/66-my-heart-is-already-living-the-new-year-vacation/"><img class="prev_cover lozad" data-src="/img/066cover.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Previous Post</div><div class="prev_info"><span>第 66 期 - 我的心已經在年假上了</span></div></a></div><div class="next-post pull-right"><a href="/2021/01/19/64-flux2/"><img class="next_cover lozad" data-src="/img/064cover.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Next Post</div><div class="next_info"><span>第 64 期 - 利用 Flux2 為 Kubernetes 達成 Configuration Management</span></div></a></div></nav></div></div><footer style="background-image: url(/img/banner.jpeg)"><div id="footer"><div class="copyright">&copy;2019 - 2023 By StarBugs Weekly Editors</div></div></footer></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/nightshift.js"></script><script color="0,0,255" opacity="0.7" zIndex="-1" count="39" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN/js/canvas-nest.js"></script><script src="/js/tw_cn.js"></script><script>translateInitilization()
+</script><script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script><script>const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+observer.observe();
+</script><script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1691460553344')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body></html>

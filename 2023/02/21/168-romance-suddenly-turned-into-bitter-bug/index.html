@@ -1,0 +1,198 @@
+<!DOCTYPE html><html><head><link rel=manifest href=/manifest.json><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>第 168 期 - 浪漫哪天突然間變成苦澀的 Bug | StarBugs Weekly 星巴哥技術週刊</title><meta name="description" content="第 168 期 - 浪漫哪天突然間變成苦澀的 Bug"><meta name="keywords" content=""><meta name="author" content="StarBugs Weekly Editors"><meta name="copyright" content="StarBugs Weekly Editors"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="canonical" href="https://starbugs.dev/2023/02/21/168-romance-suddenly-turned-into-bitter-bug/"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="第 168 期 - 浪漫哪天突然間變成苦澀的 Bug"><meta name="twitter:description" content="第 168 期 - 浪漫哪天突然間變成苦澀的 Bug"><meta name="twitter:image" content="https://starbugs.dev/img/168cover.jpg"><meta property="og:type" content="article"><meta property="og:title" content="第 168 期 - 浪漫哪天突然間變成苦澀的 Bug"><meta property="og:url" content="https://starbugs.dev/2023/02/21/168-romance-suddenly-turned-into-bitter-bug/"><meta property="og:site_name" content="StarBugs Weekly 星巴哥技術週刊"><meta property="og:description" content="第 168 期 - 浪漫哪天突然間變成苦澀的 Bug"><meta property="og:image" content="https://starbugs.dev/img/168cover.jpg"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="prev" title="第 169 期 - 大雨淅瀝瀝 淋得我心輕鬆" href="https://starbugs.dev/2023/03/07/169-rain/"><link rel="next" title="第 167 期 - 元宵節過後，變成一顆間諜氣球了！" href="https://starbugs.dev/2023/02/07/167-become-spy-balloon-after-lantern-festivel/"><link rel="dns-prefetch" href="https://www.google-analytics.com"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-151536743-1', 'auto');
+ga('send', 'pageview');
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://xxx/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight_copy: 'false',
+  highlight_lang: 'true',
+  highlight_shrink: 'false',
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  bookmark: {
+    title: 'Bookmark',
+    message_prev: 'Press',
+    message_next: 'to bookmark this page'
+  },
+  runtime_unit: 'days',
+  copyright: undefined,
+  copy_copyright_js: false
+  
+}</script><link rel="alternate" href="/atom.xml" title="StarBugs Weekly 星巴哥技術週刊" type="application/atom+xml">
+</head><body><div id="header"> <div id="page-header"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">StarBugs Weekly 星巴哥技術週刊</a></span><i class="fa fa-bars fa-fw toggle-menu pull-right close" aria-hidden="true"></i><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="https://medium.com/starbugs" target="_blank" rel="noopener"><i class="fa-fw fa fa-medium"></i><span> 技術專欄</span></a></div><div class="menus_item"><a class="site-page" href="https://www.facebook.com/starbugsweekly" target="_blank" rel="noopener"><i class="fa-fw fa fa-facebook"></i><span> 粉絲專頁</span></a></div><div class="menus_item"><a class="site-page" href="/atom.xml"><i class="fa-fw fa fa-rss"></i><span> RSS</span></a></div><script>document.body.addEventListener('touchstart', function(){ });</script></div></span><span class="pull-right" id="search_button"></span></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="lozad avatar_img" src="/img/logo.jpg" onerror="onerror=null;src='/img/friend_404.gif'"></div><div class="mobile_post_data"><div class="mobile_data_item is_center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">Articles</div><div class="length_num">180</div></a></div></div><div class="mobile_data_item is_center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">Tags</div><div class="length_num">2</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="https://medium.com/starbugs" target="_blank" rel="noopener"><i class="fa-fw fa fa-medium"></i><span> 技術專欄</span></a></div><div class="menus_item"><a class="site-page" href="https://www.facebook.com/starbugsweekly" target="_blank" rel="noopener"><i class="fa-fw fa fa-facebook"></i><span> 粉絲專頁</span></a></div><div class="menus_item"><a class="site-page" href="/atom.xml"><i class="fa-fw fa fa-rss"></i><span> RSS</span></a></div><script>document.body.addEventListener('touchstart', function(){ });</script></div></div></div><div id="body-wrap"><div id="content-outer"><div class="full_page" id="nav"><div class="nav_bg" style="background-image: url(/img/banner.jpeg)"></div><div id="site-info"><div id="site-title"><span class="blogtitle"><img class="bannerLogo" src="/img/logo.png"></span><!--= page.title || page.tag || page.category || config.title--></div><div id="site-sub-title" style="display: flex;justify-content: center;"><span class="subtitle" style="width: 75%; max-width: 900px;">StarBugs Weekly 由一群在星空般的 Bug 中求生存的開發者所創立的週刊。每週二我們會撰寫一篇原創文章與蒐集一系列國內外的好文與大家分享。內容包含 Web 前端、後端、DevOps、產品開發、專案管理 ... 等等，一切跟產品開發有關的知識。</span></div><div id="site-social-icons"><a class="social-icon" href="https://www.facebook.com/starbugsweekly" target="_blank"><i class="fa fa-facebook"></i></a><a class="social-icon" href="https://medium.com/starbugs" target="_blank"><i class="fa fa-medium"></i></a><a class="social-icon" href="/atom.xml" target="_blank"><i class="fa fa-rss"></i></a></div></div><div class="scroll-down"><i class="fa fa-angle-down scroll-down-effects"></i></div><div class="subscription"><span>SUBSCRIBE WITH MAIL</span><!--Zoho Campaigns Web-Optin Form Starts Here-->
+<script type="text/javascript" src="https://zcsub-cmpzourl.maillist-manage.com/js/optin.min.js" onload="setupSF('sf3z342b3a93d283393efdaa180a2ac842e86a26a8e698e9f7562a3662a91314393c','ZCFORMVIEW',false,'light',false,'0')"></script>
+<script type="text/javascript">
+	function runOnFormSubmit_sf3z342b3a93d283393efdaa180a2ac842e86a26a8e698e9f7562a3662a91314393c(th){
+		/*Before submit, if you want to trigger your event, "include your code here"*/
+	};
+</script>
+<style>
+  .SIGNUP_FLD {
+    display: inline-block;
+  }
+  #subscribe-button {
+    font-size: 13px;
+    border: none;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    letter-spacing: .03em;
+    color: #fff;
+    background: #E35751;
+    box-sizing: border-box;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 18px;
+    display: inline-block;
+    margin: 0;
+    transition: all 0.23s ease-in-out 0s;
+  }
+  #EMBED_FORM_EMAIL_LABEL, #EMBED_FORM_NAME_LABEL {
+    font-family: "Open Sans","Helvetica Neue",Arial,Helvetica,Verdana,sans-serif;
+    font-size: 15px;
+    border: 1px solid #ABB0B2;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color: #343434;
+    background-color: #fff;
+    box-sizing: border-box;
+    height: 32px;
+    padding: 0px 0.4em;
+    display: inline-block;
+    margin: 0;
+    width: 250px;
+    vertical-align: middle;
+  }
+  #EMBED_FORM_NAME_LABEL{
+    width: 100px;
+  }
+</style>
+
+<div id="sf3z342b3a93d283393efdaa180a2ac842e86a26a8e698e9f7562a3662a91314393c" data-type="signupform">
+	<div id="customForm">
+		<div class="quick_form_5_css" name="SIGNUP_BODY">
+			<div>
+				<!-- <div id="SIGNUP_HEADING">Join Our Newsletter</div> -->
+				<div style="position:relative;">
+					<div id="Zc_SignupSuccess" style="display:none;position:absolute;margin-left:4%;width:90%;background-color: white; padding: 3px; border: 3px solid rgb(194, 225, 154);  margin-top: 10px;margin-bottom:10px;word-break:break-all ">
+						<table width="100%" cellspacing="0" cellpadding="0" border="0">
+							<tbody>
+								<tr>
+									<td width="10%">
+										<img class="successicon" src="https://zcsub-cmpzourl.maillist-manage.com/images/challangeiconenable.jpg" align="absmiddle">
+									</td>
+									<td>
+										<span id="signupSuccessMsg" style="color: rgb(73, 140, 132); font-family: sans-serif; font-size: 14px;word-break:break-word">&nbsp;&nbsp;Thank you for Signing Up</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<form method="POST" id="zcampaignOptinForm" action="https://zcsub-cmpzourl.maillist-manage.com/weboptin.zc" target="_zcSignup">
+					<!-- <div id="errorMsgDiv">Please correct the marked field(s) below.</div> -->
+					<!-- <div class="SIGNUP_FLD">
+						<input type="text" placeholder="Name" changeitem="SIGNUP_FORM_FIELD" name="LASTNAME" id="EMBED_FORM_NAME_LABEL">
+					</div> -->
+          <div class="SIGNUP_FLD">
+						<input type="text" placeholder="Email" changeitem="SIGNUP_FORM_FIELD" name="CONTACT_EMAIL" id="EMBED_FORM_EMAIL_LABEL">
+					</div>
+					<div class="SIGNUP_FLD">
+						<input id="subscribe-button" type="button" name="SIGNUP_SUBMIT_BUTTON" id="zcWebOptin" value="Subscribe">
+					</div>
+          <div>No spam, ever. We'll never share your address and you can opt out at any time</div>
+					<input type="hidden" id="fieldBorder" value="">
+					<input type="hidden" id="submitType" name="submitType" value="optinCustomView">
+					<input type="hidden" id="emailReportId" name="emailReportId" value="">
+					<input type="hidden" id="formType" name="formType" value="QuickForm">
+					<input type="hidden" name="zx" id="cmpZuid" value="1300df041">
+					<input type="hidden" name="zcvers" value="3.0">
+					<input type="hidden" name="oldListIds" id="allCheckedListIds" value="">
+					<input type="hidden" id="mode" name="mode" value="OptinCreateView">
+					<input type="hidden" id="zcld" name="zcld" value="">
+					<input type="hidden" id="zctd" name="zctd" value="">
+					<input type="hidden" id="document_domain" value="">
+					<input type="hidden" id="zc_Url" value="zcsub-cmpzourl.maillist-manage.com">
+					<input type="hidden" id="new_optin_response_in" value="0">
+					<input type="hidden" id="duplicate_optin_response_in" value="0">
+					<input type="hidden" name="zc_trackCode" id="zc_trackCode" value="ZCFORMVIEW">
+					<input type="hidden" id="zc_formIx" name="zc_formIx" value="3z342b3a93d283393efdaa180a2ac842e86a26a8e698e9f7562a3662a91314393c">
+					<input type="hidden" id="viewFrom" value="URL_ACTION">
+					<span style="display: none" id="dt_CONTACT_EMAIL">1,true,6,Contact Email,2</span>
+					<span style="display: none" id="dt_FIRSTNAME">1,false,1,First Name,2</span>
+					<span style="display: none" id="dt_LASTNAME">1,false,1,Last Name,2</span>
+				</form>
+			</div>
+		</div>
+	</div>
+	<img src="https://zcsub-cmpzourl.maillist-manage.com/images/spacer.gif" id="refImage" onload="referenceSetter(this)">
+</div>
+<input type="hidden" id="signupFormType" value="QuickForm_Horizontal">
+<div id="zcOptinOverLay" oncontextmenu="return false" style="display:none;text-align: center; background-color: rgb(0, 0, 0); opacity: 0.5; z-index: 100; position: fixed; width: 100%; top: 0px; left: 0px; height: 988px;"></div>
+<div id="zcOptinSuccessPopup" style="display:none;z-index: 9999;width: 800px; height: 40%;top: 84px;position: fixed; left: 26%;background-color: #FFFFFF;border-color: #E6E6E6; border-style: solid; border-width: 1px;  box-shadow: 0 1px 10px #424242;padding: 35px;">
+	<span style="position: absolute;top: -16px;right:-14px;z-index:99999;cursor: pointer;" id="closeSuccess">
+		<img src="https://zcsub-cmpzourl.maillist-manage.com/images/videoclose.png">
+	</span>
+	<div id="zcOptinSuccessPanel"></div>
+</div>
+
+<!--Zoho Campaigns Web-Optin Form Ends Here--></div></div><div class="layout layout_post" id="content-inner"><article id="post"><h1>第 168 期 - 浪漫哪天突然間變成苦澀的 Bug</h1><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> Created on 2023-02-21</time><div class="article-container" id="post-content"><h2 id="本週專欄"><a href="#本週專欄" class="headerlink" title="本週專欄"></a>本週專欄</h2><h3 id="Render-來試試用來取代-Heroku-的服務吧-Render-的網路服務部署介紹！"><a href="#Render-來試試用來取代-Heroku-的服務吧-Render-的網路服務部署介紹！" class="headerlink" title="Render | 來試試用來取代 Heroku 的服務吧 - Render 的網路服務部署介紹！"></a><a href="https://medium.com/starbugs/render-%E4%BE%86%E8%A9%A6%E8%A9%A6%E7%94%A8%E4%BE%86%E5%8F%96%E4%BB%A3-heroku-%E7%9A%84%E6%9C%8D%E5%8B%99%E5%90%A7-render-%E7%9A%84%E7%B6%B2%E8%B7%AF%E6%9C%8D%E5%8B%99%E9%83%A8%E7%BD%B2%E4%BB%8B%E7%B4%B9-b728e86d5716" target="_blank" rel="noopener">Render | 來試試用來取代 Heroku 的服務吧 - Render 的網路服務部署介紹！</a></h3><h3 id="cyclic-來試試用來取代-Heroku-的服務吧-cyclic-的網路服務部署介紹！"><a href="#cyclic-來試試用來取代-Heroku-的服務吧-cyclic-的網路服務部署介紹！" class="headerlink" title="cyclic | 來試試用來取代 Heroku 的服務吧 - cyclic 的網路服務部署介紹！"></a><a href="https://medium.com/starbugs/cyclic-%E4%BE%86%E8%A9%A6%E8%A9%A6%E7%94%A8%E4%BE%86%E5%8F%96%E4%BB%A3-heroku-%E7%9A%84%E6%9C%8D%E5%8B%99%E5%90%A7-cyclic-%E7%9A%84%E7%B6%B2%E8%B7%AF%E6%9C%8D%E5%8B%99%E9%83%A8%E7%BD%B2%E4%BB%8B%E7%B4%B9-97ecc57f39e6" target="_blank" rel="noopener">cyclic | 來試試用來取代 Heroku 的服務吧 - cyclic 的網路服務部署介紹！</a></h3><p>Hi！大家好，我是神 Q 超人！相信有許多人在去年 2022 <a href="https://www.heroku.com/" target="_blank" rel="noopener">Heroku</a> 說要取消免費計劃的同時，就開始尋覓下個能夠繼續免費使用的平台 😂。就我來說畢竟也是有一些食之無味，棄之可惜的作品服務在那上面放著，而它們也都在免費計畫結束後就都掛了，像變心的女朋友一樣，不論給什麼 request 永遠等不到 response 回來。</p>
+<p>如果各位也有遇到相同的問題，就來看看本週的「來試試用來取代 Heroku 的服務吧！」系列的兩篇文章吧！如果時間不多的話也可以直接到文章下方，都有關於該服務的優缺點懶人包唷！</p>
+<h2 id="前端開發"><a href="#前端開發" class="headerlink" title="前端開發"></a>前端開發</h2><!-- summary -->
+
+<h3 id="Moving-Backgrounds"><a href="#Moving-Backgrounds" class="headerlink" title="Moving Backgrounds"></a><a href="https://css-tricks.com/moving-backgrounds/" target="_blank" rel="noopener">Moving Backgrounds</a></h3><p>相信各位平常在逛一些購物網站的時候，都會有一些產品的圖片可以看，且當你滑鼠移到圖片上面時，還可以根據目前滑鼠在的位置局部放大圖片，並且根據滑鼠移動改變放大的位置，這篇文章就是要來聊聊該如何實現這件事情！</p>
+<!-- summary -->
+
+<h3 id="Use-Maps-more-and-Objects-less"><a href="#Use-Maps-more-and-Objects-less" class="headerlink" title="Use Maps more and Objects less"></a><a href="https://www.builder.io/blog/maps" target="_blank" rel="noopener">Use Maps more and Objects less</a></h3><p>在 JavaScript 裡面，我們可以輕鬆的用 Object 來做到 key 和 value 的對照，但是即使這個方法很容易做到，也不代表你得這麼做。文章中介紹了 Map，可以在你需要操作類似 key 和 value 的對照時使用，並且從效能、使用限制、用 for 讀 key、內置排序等等許多面向探討 Map 與 Object 的不同。</p>
+<h3 id="Advanced-TypeScript"><a href="#Advanced-TypeScript" class="headerlink" title="Advanced TypeScript"></a><a href="https://angularexperts.io/blog/advanced-typescript" target="_blank" rel="noopener">Advanced TypeScript</a></h3><p>TypeScript 讓身為動態型別的 JavaScript 擁有更嚴禁的型別設定，但是該如何靈活定義這些型別也是需要一番功夫的。這篇文章就介紹了以下幾種設置以及限制型別的方式：</p>
+<ul>
+<li>Union and intersection types</li>
+<li>Keyof</li>
+<li>Typeof</li>
+<li>Conditional types</li>
+<li>Utility types</li>
+<li>Infer type</li>
+<li>Mapped types</li>
+</ul>
+<p>每一種方式都有給出範例的程式碼，並在程式碼中用註解來表示型別帶來的限制。</p>
+<h2 id="Golang"><a href="#Golang" class="headerlink" title="Golang"></a>Golang</h2><h3 id="把-Github-Issue-當成資料庫來用"><a href="#把-Github-Issue-當成資料庫來用" class="headerlink" title="把 Github Issue 當成資料庫來用"></a><a href="https://www.evanlin.com/go-github-issue/" target="_blank" rel="noopener">把 Github Issue 當成資料庫來用</a></h3><p>想要自己寫一個 Go Application 但又不想花錢租資料庫嗎？這邊提供一個把 Github Issue 拿來當資料庫的方法。只要你的流量不高，對於 DB read/write  的速度也不要太計較，那真的可以用 Github Issue 來當資料庫XD。</p>
+<h3 id="Go-1-20-in-a-nutshell"><a href="#Go-1-20-in-a-nutshell" class="headerlink" title="Go 1.20 in a nutshell"></a><a href="https://appliedgo.com/blog/go-1-20-in-a-nutshell" target="_blank" rel="noopener">Go 1.20 in a nutshell</a></h3><p>前幾週有分享一篇文章講 Go 1.20 有哪些新 feature，但那篇文章比較長，如果你懶得看太多細節，只想看懶人包了解一下 Go 1.20 的話XD，那可以看看這篇文章～</p>
+<h3 id="Go-1-20-Experiment-Memory-Arenas-vs-Traditional-Memory-Management"><a href="#Go-1-20-Experiment-Memory-Arenas-vs-Traditional-Memory-Management" class="headerlink" title="Go 1.20 Experiment: Memory Arenas vs Traditional Memory Management"></a><a href="https://pyroscope.io/blog/go-1-20-memory-arenas/" target="_blank" rel="noopener">Go 1.20 Experiment: Memory Arenas vs Traditional Memory Management</a></h3><p>Go 在 1.20 推出的實驗性 feature - Memory Arenas 究竟能不能幫我們改善記憶體管理以及 GC 的效率呢？如果懶得自己研究的話，那我們來看看別人研究完的結果。結論是 Memory Arenas 在某些極端的情況下，確實可以幫你減少很多 overhead，但因為 Memory Arenas 仍然是實驗性的功能，如果要用在 Production 上的話還是要自己評估看看。</p>
+<h2 id="DevOps"><a href="#DevOps" class="headerlink" title="DevOps"></a>DevOps</h2><!-- summary -->
+<h3 id="Back-to-Basics-Installing-NGINX-Open-Source-and-NGINX-Plus"><a href="#Back-to-Basics-Installing-NGINX-Open-Source-and-NGINX-Plus" class="headerlink" title="Back to Basics: Installing NGINX Open Source and NGINX Plus"></a><a href="https://www.nginx.com/blog/back-to-basics-installing-nginx-open-source-and-nginx-plus/" target="_blank" rel="noopener">Back to Basics: Installing NGINX Open Source and NGINX Plus</a></h3><p>想必不少人對 Nginx 的設定依舊一知半解，官方提供的基礎影片以有結構的方式介紹 Nginx 本身與使用，是時候重溫基本功了。除了 open source 版本，也順便介紹 Nginx Plus 的付費版本。</p>
+<!-- summary -->
+
+<h3 id="How-do-you-gracefully-shut-down-pods-in-kubernetes"><a href="#How-do-you-gracefully-shut-down-pods-in-kubernetes" class="headerlink" title="How do you gracefully shut down pods in kubernetes"></a><a href="https://itnext.io/how-do-you-gracefully-shut-down-pods-in-kubernetes-fb19f617cd67" target="_blank" rel="noopener">How do you gracefully shut down pods in kubernetes</a></h3><p>當你從 terminal 裡下達 kubectl delete pod 時會發生什麼事？發出 request 到 kube-apiserver 後移除 etcd 裡 IP 和 port 的網路資訊，etcd 再通知 CoreDNS、kube-proxy 或 Nginx-ingress 等等也要移除網路資訊。之後節點上的 kubelet 也會收到刪除 pod 的通知開始動作，會先看 preStop 、SIGTERM 最後才強制使用 SIGKILL。</p>
+<h3 id="Secrets-Management"><a href="#Secrets-Management" class="headerlink" title="Secrets Management"></a><a href="https://dzone.com/articles/secrets-management-1" target="_blank" rel="noopener">Secrets Management</a></h3><p>密碼管理永遠是令人頭痛的點，此篇介紹一些該注意的點，不論是生產、測試、內部環境甚至服務本身以及 DevOps 相關的工具全部建議要有 RBAC、使用專門的密碼軟體和時常更新密碼，而且一個密碼軟體不太可能支援所有使用情境，所以選用正確的密碼軟體對應適當的情境。</p>
+<p>Writer:</p>
+<ul>
+<li><a href="https://medium.com/@gqsm" target="_blank" rel="noopener">@GQSM</a> - Hi！我是神 Q 超人，一個先衝再說的男人。</li>
+</ul>
+<p>Maintainers:</p>
+<ul>
+<li><a href="https://larry850806.medium.com" target="_blank" rel="noopener">@LarryLu</a> - 我是 Larry，傳說中的 0.1 倍工程師！</li>
+<li><a href="https://medium.com/@gqsm" target="_blank" rel="noopener">@GQSM</a> - Hi！我是神 Q 超人，一個先衝再說的男人。</li>
+<li><a href="https://medium.com/@LukaTW" target="_blank" rel="noopener">@LukaTW</a> - 一名全身都是死角的工程師。</li>
+<li><a href="https://medium.com/@smalltown" target="_blank" rel="noopener">@smalltown</a> - 熱愛鑽研各種可以提升雲端服務品質及增進團隊開發效率的開源技術。</li>
+<li><a href="https://rico-chen.medium.com/" target="_blank" rel="noopener">@RicoChen</a> - 熱愛許多技術且努力看透技術的本質，如果有什麼好玩的技術，還請各位歡迎直接找我聊聊。</li>
+</ul>
+<h2 id="Feedback"><a href="#Feedback" class="headerlink" title="Feedback"></a>Feedback</h2><p>本週呈現主題方式做了一些改變，希望讓讀者能夠更快速精準的找到自己要的資訊。也加入社群活動這個區塊，每週更新社群活動的資訊。如果有任何建議，歡迎私訊 <a href="https://www.facebook.com/StarBugsWeekly/" target="_blank" rel="noopener">星巴哥技術週刊 FB 粉絲專頁</a> 與我們聯繫。</p>
+</div></article><nav class="pagination_post" id="pagination"><div class="prev-post pull-left"><a href="/2023/03/07/169-rain/"><img class="prev_cover lozad" data-src="/img/169cover.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Previous Post</div><div class="prev_info"><span>第 169 期 - 大雨淅瀝瀝 淋得我心輕鬆</span></div></a></div><div class="next-post pull-right"><a href="/2023/02/07/167-become-spy-balloon-after-lantern-festivel/"><img class="next_cover lozad" data-src="/img/167cover.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Next Post</div><div class="next_info"><span>第 167 期 - 元宵節過後，變成一顆間諜氣球了！</span></div></a></div></nav></div></div><footer style="background-image: url(/img/banner.jpeg)"><div id="footer"><div class="copyright">&copy;2019 - 2023 By StarBugs Weekly Editors</div></div></footer></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/nightshift.js"></script><script color="0,0,255" opacity="0.7" zIndex="-1" count="39" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN/js/canvas-nest.js"></script><script src="/js/tw_cn.js"></script><script>translateInitilization()
+</script><script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script><script>const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+observer.observe();
+</script><script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1691460553344')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body></html>

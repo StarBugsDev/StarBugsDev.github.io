@@ -1,0 +1,192 @@
+<!DOCTYPE html><html><head><link rel=manifest href=/manifest.json><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>第 64 期 - 利用 Flux2 為 Kubernetes 達成 Configuration Management | StarBugs Weekly 星巴哥技術週刊</title><meta name="description" content="第 64 期 - 利用 Flux2 為 Kubernetes 達成 Configuration Management"><meta name="keywords" content=""><meta name="author" content="StarBugs Weekly Editors"><meta name="copyright" content="StarBugs Weekly Editors"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="canonical" href="https://starbugs.dev/2021/01/19/64-flux2/"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="第 64 期 - 利用 Flux2 為 Kubernetes 達成 Configuration Management"><meta name="twitter:description" content="第 64 期 - 利用 Flux2 為 Kubernetes 達成 Configuration Management"><meta name="twitter:image" content="https://starbugs.dev/img/064cover.jpg"><meta property="og:type" content="article"><meta property="og:title" content="第 64 期 - 利用 Flux2 為 Kubernetes 達成 Configuration Management"><meta property="og:url" content="https://starbugs.dev/2021/01/19/64-flux2/"><meta property="og:site_name" content="StarBugs Weekly 星巴哥技術週刊"><meta property="og:description" content="第 64 期 - 利用 Flux2 為 Kubernetes 達成 Configuration Management"><meta property="og:image" content="https://starbugs.dev/img/064cover.jpg"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="prev" title="第 65 期 - 每天都 git pull，conflict 遠離我" href="https://starbugs.dev/2021/01/26/65-remember-to-git-pull-every-day/"><link rel="next" title="第 63 期 - 寒流來襲，程式碼可以先冰起來，等到夏天再拿出來寫嗎？" href="https://starbugs.dev/2021/01/12/63-the-winter-is-coming-may-i-freeze-code/"><link rel="dns-prefetch" href="https://www.google-analytics.com"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-151536743-1', 'auto');
+ga('send', 'pageview');
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://xxx/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight_copy: 'false',
+  highlight_lang: 'true',
+  highlight_shrink: 'false',
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  bookmark: {
+    title: 'Bookmark',
+    message_prev: 'Press',
+    message_next: 'to bookmark this page'
+  },
+  runtime_unit: 'days',
+  copyright: undefined,
+  copy_copyright_js: false
+  
+}</script><link rel="alternate" href="/atom.xml" title="StarBugs Weekly 星巴哥技術週刊" type="application/atom+xml">
+</head><body><div id="header"> <div id="page-header"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">StarBugs Weekly 星巴哥技術週刊</a></span><i class="fa fa-bars fa-fw toggle-menu pull-right close" aria-hidden="true"></i><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="https://medium.com/starbugs" target="_blank" rel="noopener"><i class="fa-fw fa fa-medium"></i><span> 技術專欄</span></a></div><div class="menus_item"><a class="site-page" href="https://www.facebook.com/starbugsweekly" target="_blank" rel="noopener"><i class="fa-fw fa fa-facebook"></i><span> 粉絲專頁</span></a></div><div class="menus_item"><a class="site-page" href="/atom.xml"><i class="fa-fw fa fa-rss"></i><span> RSS</span></a></div><script>document.body.addEventListener('touchstart', function(){ });</script></div></span><span class="pull-right" id="search_button"></span></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="lozad avatar_img" src="/img/logo.jpg" onerror="onerror=null;src='/img/friend_404.gif'"></div><div class="mobile_post_data"><div class="mobile_data_item is_center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">Articles</div><div class="length_num">180</div></a></div></div><div class="mobile_data_item is_center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">Tags</div><div class="length_num">2</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="https://medium.com/starbugs" target="_blank" rel="noopener"><i class="fa-fw fa fa-medium"></i><span> 技術專欄</span></a></div><div class="menus_item"><a class="site-page" href="https://www.facebook.com/starbugsweekly" target="_blank" rel="noopener"><i class="fa-fw fa fa-facebook"></i><span> 粉絲專頁</span></a></div><div class="menus_item"><a class="site-page" href="/atom.xml"><i class="fa-fw fa fa-rss"></i><span> RSS</span></a></div><script>document.body.addEventListener('touchstart', function(){ });</script></div></div></div><div id="body-wrap"><div id="content-outer"><div class="full_page" id="nav"><div class="nav_bg" style="background-image: url(/img/banner.jpeg)"></div><div id="site-info"><div id="site-title"><span class="blogtitle"><img class="bannerLogo" src="/img/logo.png"></span><!--= page.title || page.tag || page.category || config.title--></div><div id="site-sub-title" style="display: flex;justify-content: center;"><span class="subtitle" style="width: 75%; max-width: 900px;">StarBugs Weekly 由一群在星空般的 Bug 中求生存的開發者所創立的週刊。每週二我們會撰寫一篇原創文章與蒐集一系列國內外的好文與大家分享。內容包含 Web 前端、後端、DevOps、產品開發、專案管理 ... 等等，一切跟產品開發有關的知識。</span></div><div id="site-social-icons"><a class="social-icon" href="https://www.facebook.com/starbugsweekly" target="_blank"><i class="fa fa-facebook"></i></a><a class="social-icon" href="https://medium.com/starbugs" target="_blank"><i class="fa fa-medium"></i></a><a class="social-icon" href="/atom.xml" target="_blank"><i class="fa fa-rss"></i></a></div></div><div class="scroll-down"><i class="fa fa-angle-down scroll-down-effects"></i></div><div class="subscription"><span>SUBSCRIBE WITH MAIL</span><!--Zoho Campaigns Web-Optin Form Starts Here-->
+<script type="text/javascript" src="https://zcsub-cmpzourl.maillist-manage.com/js/optin.min.js" onload="setupSF('sf3z342b3a93d283393efdaa180a2ac842e86a26a8e698e9f7562a3662a91314393c','ZCFORMVIEW',false,'light',false,'0')"></script>
+<script type="text/javascript">
+	function runOnFormSubmit_sf3z342b3a93d283393efdaa180a2ac842e86a26a8e698e9f7562a3662a91314393c(th){
+		/*Before submit, if you want to trigger your event, "include your code here"*/
+	};
+</script>
+<style>
+  .SIGNUP_FLD {
+    display: inline-block;
+  }
+  #subscribe-button {
+    font-size: 13px;
+    border: none;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    letter-spacing: .03em;
+    color: #fff;
+    background: #E35751;
+    box-sizing: border-box;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 18px;
+    display: inline-block;
+    margin: 0;
+    transition: all 0.23s ease-in-out 0s;
+  }
+  #EMBED_FORM_EMAIL_LABEL, #EMBED_FORM_NAME_LABEL {
+    font-family: "Open Sans","Helvetica Neue",Arial,Helvetica,Verdana,sans-serif;
+    font-size: 15px;
+    border: 1px solid #ABB0B2;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color: #343434;
+    background-color: #fff;
+    box-sizing: border-box;
+    height: 32px;
+    padding: 0px 0.4em;
+    display: inline-block;
+    margin: 0;
+    width: 250px;
+    vertical-align: middle;
+  }
+  #EMBED_FORM_NAME_LABEL{
+    width: 100px;
+  }
+</style>
+
+<div id="sf3z342b3a93d283393efdaa180a2ac842e86a26a8e698e9f7562a3662a91314393c" data-type="signupform">
+	<div id="customForm">
+		<div class="quick_form_5_css" name="SIGNUP_BODY">
+			<div>
+				<!-- <div id="SIGNUP_HEADING">Join Our Newsletter</div> -->
+				<div style="position:relative;">
+					<div id="Zc_SignupSuccess" style="display:none;position:absolute;margin-left:4%;width:90%;background-color: white; padding: 3px; border: 3px solid rgb(194, 225, 154);  margin-top: 10px;margin-bottom:10px;word-break:break-all ">
+						<table width="100%" cellspacing="0" cellpadding="0" border="0">
+							<tbody>
+								<tr>
+									<td width="10%">
+										<img class="successicon" src="https://zcsub-cmpzourl.maillist-manage.com/images/challangeiconenable.jpg" align="absmiddle">
+									</td>
+									<td>
+										<span id="signupSuccessMsg" style="color: rgb(73, 140, 132); font-family: sans-serif; font-size: 14px;word-break:break-word">&nbsp;&nbsp;Thank you for Signing Up</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<form method="POST" id="zcampaignOptinForm" action="https://zcsub-cmpzourl.maillist-manage.com/weboptin.zc" target="_zcSignup">
+					<!-- <div id="errorMsgDiv">Please correct the marked field(s) below.</div> -->
+					<!-- <div class="SIGNUP_FLD">
+						<input type="text" placeholder="Name" changeitem="SIGNUP_FORM_FIELD" name="LASTNAME" id="EMBED_FORM_NAME_LABEL">
+					</div> -->
+          <div class="SIGNUP_FLD">
+						<input type="text" placeholder="Email" changeitem="SIGNUP_FORM_FIELD" name="CONTACT_EMAIL" id="EMBED_FORM_EMAIL_LABEL">
+					</div>
+					<div class="SIGNUP_FLD">
+						<input id="subscribe-button" type="button" name="SIGNUP_SUBMIT_BUTTON" id="zcWebOptin" value="Subscribe">
+					</div>
+          <div>No spam, ever. We'll never share your address and you can opt out at any time</div>
+					<input type="hidden" id="fieldBorder" value="">
+					<input type="hidden" id="submitType" name="submitType" value="optinCustomView">
+					<input type="hidden" id="emailReportId" name="emailReportId" value="">
+					<input type="hidden" id="formType" name="formType" value="QuickForm">
+					<input type="hidden" name="zx" id="cmpZuid" value="1300df041">
+					<input type="hidden" name="zcvers" value="3.0">
+					<input type="hidden" name="oldListIds" id="allCheckedListIds" value="">
+					<input type="hidden" id="mode" name="mode" value="OptinCreateView">
+					<input type="hidden" id="zcld" name="zcld" value="">
+					<input type="hidden" id="zctd" name="zctd" value="">
+					<input type="hidden" id="document_domain" value="">
+					<input type="hidden" id="zc_Url" value="zcsub-cmpzourl.maillist-manage.com">
+					<input type="hidden" id="new_optin_response_in" value="0">
+					<input type="hidden" id="duplicate_optin_response_in" value="0">
+					<input type="hidden" name="zc_trackCode" id="zc_trackCode" value="ZCFORMVIEW">
+					<input type="hidden" id="zc_formIx" name="zc_formIx" value="3z342b3a93d283393efdaa180a2ac842e86a26a8e698e9f7562a3662a91314393c">
+					<input type="hidden" id="viewFrom" value="URL_ACTION">
+					<span style="display: none" id="dt_CONTACT_EMAIL">1,true,6,Contact Email,2</span>
+					<span style="display: none" id="dt_FIRSTNAME">1,false,1,First Name,2</span>
+					<span style="display: none" id="dt_LASTNAME">1,false,1,Last Name,2</span>
+				</form>
+			</div>
+		</div>
+	</div>
+	<img src="https://zcsub-cmpzourl.maillist-manage.com/images/spacer.gif" id="refImage" onload="referenceSetter(this)">
+</div>
+<input type="hidden" id="signupFormType" value="QuickForm_Horizontal">
+<div id="zcOptinOverLay" oncontextmenu="return false" style="display:none;text-align: center; background-color: rgb(0, 0, 0); opacity: 0.5; z-index: 100; position: fixed; width: 100%; top: 0px; left: 0px; height: 988px;"></div>
+<div id="zcOptinSuccessPopup" style="display:none;z-index: 9999;width: 800px; height: 40%;top: 84px;position: fixed; left: 26%;background-color: #FFFFFF;border-color: #E6E6E6; border-style: solid; border-width: 1px;  box-shadow: 0 1px 10px #424242;padding: 35px;">
+	<span style="position: absolute;top: -16px;right:-14px;z-index:99999;cursor: pointer;" id="closeSuccess">
+		<img src="https://zcsub-cmpzourl.maillist-manage.com/images/videoclose.png">
+	</span>
+	<div id="zcOptinSuccessPanel"></div>
+</div>
+
+<!--Zoho Campaigns Web-Optin Form Ends Here--></div></div><div class="layout layout_post" id="content-inner"><article id="post"><h1>第 64 期 - 利用 Flux2 為 Kubernetes 達成 Configuration Management</h1><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> Created on 2021-01-19</time><div class="article-container" id="post-content"><h2 id="本週專欄"><a href="#本週專欄" class="headerlink" title="本週專欄"></a>本週專欄</h2><h3 id="利用-Flux2-為-Kubernetes-達成Configuration-Management"><a href="#利用-Flux2-為-Kubernetes-達成Configuration-Management" class="headerlink" title="利用 Flux2 為 Kubernetes 達成Configuration Management"></a><a href="https://medium.com/starbugs/%E5%88%A9%E7%94%A8-flux2-%E7%82%BA-kubernetes-%E9%81%94%E6%88%90configuration-management-e0cd7a19615e" target="_blank" rel="noopener">利用 Flux2 為 Kubernetes 達成Configuration Management</a></h3><p>自己管理的 K8s Cluster 已經十幾座了，而且還越來越多，究竟該怎麼自動化的管理他們呢？讓我們來看看 Flux version 2 如何解決這個問題</p>
+<h2 id="星巴哥專欄作者，原創文章"><a href="#星巴哥專欄作者，原創文章" class="headerlink" title="星巴哥專欄作者，原創文章"></a>星巴哥專欄作者，原創文章</h2><h3 id="Rethinking-Design-Practices-ReactConf-AU-2020-筆記-—-Part-3"><a href="#Rethinking-Design-Practices-ReactConf-AU-2020-筆記-—-Part-3" class="headerlink" title="Rethinking Design Practices | ReactConf AU 2020 筆記 — Part 3"></a><a href="https://medium.com/starbugs/rethinking-design-practices-reactconf-au-2020-5507988f95e4" target="_blank" rel="noopener">Rethinking Design Practices | ReactConf AU 2020 筆記 — Part 3</a></h3><p>「建構一套 design system」一直是前端開發者們想做的事情，剛好 ReactConf AU 有一場演講是由 Seek 工作的 Mark Dalgleish 分享他的心得歷程，訴說他是如何建立一套 design system。讓我們透過這篇文章來看看該怎麼做比較好</p>
+<h2 id="Javascript"><a href="#Javascript" class="headerlink" title="Javascript"></a>Javascript</h2><h3 id="State-of-JS-2020"><a href="#State-of-JS-2020" class="headerlink" title="State of JS 2020"></a><a href="https://2020.stateofjs.com/zh-Hant/" target="_blank" rel="noopener">State of JS 2020</a></h3><p>由 State of JS 對於 JS 生態系做的調查出來啦，整體而言 JS 還是一直在推出新 feature，像下面的文章介紹的 Optional Chaining 和 Nullish Coalescing 就是。而前端方面雖然還是三大框架為主，但最近用編譯器技術實作的前端框架 Svelte、跟以 ES Module 為主的 build tool Snowpack 都以很快的速度在成長。JS 未來會怎麼樣沒人知道，所以這邊分享這個 State of JS 給想要追上 JS 趨勢的人～</p>
+<h3 id="來談-JavaScript-的-Optional-Chaining-和-Nullish-Coalescing"><a href="#來談-JavaScript-的-Optional-Chaining-和-Nullish-Coalescing" class="headerlink" title="來談 JavaScript 的 Optional Chaining 和 Nullish Coalescing"></a><a href="https://medium.com/%E7%A8%8B%E5%BC%8F%E7%8C%BF%E5%90%83%E9%A6%99%E8%95%89/%E4%BE%86%E8%AB%87-javascript-%E7%9A%84-optional-chaining-%E5%92%8C-nullish-coalescing-part-i-992625a1861d" target="_blank" rel="noopener">來談 JavaScript 的 Optional Chaining 和 Nullish Coalescing</a></h3><p>Optional Chaining 大概是近期 JS 的新 feature 中我最喜歡的一個，有了他之後終於可以不用再寫一堆落落長的 &amp;&amp;，不只程式碼變短了，可讀性也是大幅上升。而且這篇文章除了介紹之外還有分析在各平台的支援度，還沒用過的話趕快來讀讀這篇吧</p>
+<h3 id="Node-Modules-at-War-Why-CommonJS-and-ES-Modules-Can’t-Get-Along"><a href="#Node-Modules-at-War-Why-CommonJS-and-ES-Modules-Can’t-Get-Along" class="headerlink" title="Node Modules at War: Why CommonJS and ES Modules Can’t Get Along"></a><a href="https://redfin.engineering/node-modules-at-war-why-commonjs-and-es-modules-cant-get-along-9617135eeca1" target="_blank" rel="noopener">Node Modules at War: Why CommonJS and ES Modules Can’t Get Along</a></h3><p>為什麼 JS 生態系中的 CommonJS 跟 ES Modules 兩個模組系統一直沒辦法合併起來呢？因為他們兩個不僅僅只有語法不同，就連底層的很多行為都不一樣</p>
+<p>像 ESM 在 import 時會強制使用 strict mode 但 CommonJS 不會，導致用 ESM import 不符合 strict mode 的舊模組會一些奇怪的錯誤，而且這只是其中一個例子，他們兩個還有很多其他地方也都不一樣，想知道更多的話可以看看這篇～</p>
+<h2 id="前端開發"><a href="#前端開發" class="headerlink" title="前端開發"></a>前端開發</h2><h3 id="What-is-Variable-Naming-You-Ask-Here’s-How-it-Could-Save-Your-Life"><a href="#What-is-Variable-Naming-You-Ask-Here’s-How-it-Could-Save-Your-Life" class="headerlink" title="What is Variable Naming, You Ask? Here’s How it Could Save Your Life"></a><a href="https://hackernoon.com/what-is-variable-naming-you-ask-heres-how-it-could-save-your-life-5y4k31r8" target="_blank" rel="noopener">What is Variable Naming, You Ask? Here’s How it Could Save Your Life</a></h3><p>「你說變數命名是什麼？是一個可以拯救你生命的方法！」這是作者在進入另一個 Team 後的故事，其中像標題這麼深刻的體悟究竟是從哪裡來的，讓我們一起看看苦主怎麼說。</p>
+<h3 id="10-ways-to-use-the-spread-operator-in-JavaScript"><a href="#10-ways-to-use-the-spread-operator-in-JavaScript" class="headerlink" title="10 ways to use the spread operator in JavaScript"></a><a href="https://dev.to/dailydevtips1/10-ways-to-use-the-spread-operator-in-javascript-1imb" target="_blank" rel="noopener">10 ways to use the spread operator in JavaScript</a></h3><p>在 JavaScript 中的 <code>...</code>（Operator，擴展運算子）絕對是學前看不懂是在幹嘛，了解後愛不釋手的一個語法 😂。文章中用各種範例介紹 10 個 Operator 大顯身手的情境！</p>
+<h3 id="值得設計師好好收藏的插圖素材網站（圖片-PNG-向量-SVG）"><a href="#值得設計師好好收藏的插圖素材網站（圖片-PNG-向量-SVG）" class="headerlink" title="值得設計師好好收藏的插圖素材網站（圖片.PNG/向量.SVG）"></a><a href="https://riven.medium.com/%E5%80%BC%E5%BE%97%E8%A8%AD%E8%A8%88%E5%B8%AB%E5%A5%BD%E5%A5%BD%E6%94%B6%E8%97%8F%E7%9A%84%E6%8F%92%E5%9C%96%E7%B4%A0%E6%9D%90%E7%B6%B2%E7%AB%99-%E5%9C%96%E7%89%87-png-%E5%90%91%E9%87%8F-svg-456f58bd0a06" target="_blank" rel="noopener">值得設計師好好收藏的插圖素材網站（圖片.PNG/向量.SVG）</a></h3><p>不只設計師，就連前端工程師都很值得收藏的幾個網頁！如果常常在做 Side Project 的時候找來找去找不到一個自己喜歡的插圖，或是好不容易找到了卻有版權問題，不如趁現在來看看文章裡推薦的圖庫網站吧！</p>
+<h3 id="5-top-React-Hook-Libraries"><a href="#5-top-React-Hook-Libraries" class="headerlink" title="5 top React Hook Libraries"></a><a href="https://blog.logrocket.com/5-top-react-hooks-libraries-compared/" target="_blank" rel="noopener">5 top React Hook Libraries</a></h3><p>現在 React 已經進入了大 Hook 時代，所謂的 React Hook 簡單來說就是利用 Function Component 的撰寫方式寫出元件，既然是 function 就會有很多好用的 method 陸續的被大神寫出來，這篇文章整理了 5 個好用的 Hook，非常適合給剛學習 React Hook 的使用者使用。</p>
+<h3 id="html-input-type"><a href="#html-input-type" class="headerlink" title="html input type"></a><a href="https://twitter.com/addyosmani/status/1348902534363152385/photo/1" target="_blank" rel="noopener">html input type</a></h3><p>現在的前端工程師必須要越來越能為了使用者去優化一些操作體驗，尤其現在的產品很多都是強調 mobile first，在 input 的預設鍵盤顯示就更顯得重要了，透過一些 input type 的設定就可以讓使用者在輸入文字框的時候更加便利。</p>
+<h3 id="網站安全🔒-伺服器端請求偽造-SSRF-攻擊"><a href="#網站安全🔒-伺服器端請求偽造-SSRF-攻擊" class="headerlink" title="網站安全🔒 伺服器端請求偽造 SSRF 攻擊"></a><a href="https://medium.com/%E7%A8%8B%E5%BC%8F%E7%8C%BF%E5%90%83%E9%A6%99%E8%95%89/%E7%B6%B2%E7%AB%99%E5%AE%89%E5%85%A8-%E4%BC%BA%E6%9C%8D%E5%99%A8%E8%AB%8B%E6%B1%82%E5%81%BD%E9%80%A0-ssrf-%E6%94%BB%E6%93%8A-%E9%A0%85%E8%8E%8A%E8%88%9E%E5%8A%8D-%E6%84%8F%E5%9C%A8%E6%B2%9B%E5%85%AC-7a5524926362" target="_blank" rel="noopener">網站安全🔒 伺服器端請求偽造 SSRF 攻擊</a></h3><p>現在的網站越來越複雜，以前的前端工程師頂多只要注意畫面有沒有跑版整體流程有沒有錯誤，現在的前端工程師不但要會基礎的切版外還要懂一些資訊安全，像是 <code>CSRF</code>、<code>XSS</code> 等等網路攻擊，這邊要介紹的是 <code>SSRF</code>，由於 <code>SSRF</code> 跟 <code>CSRF</code> 以及 <code>XSS</code> 等等不太一樣，通常的資訊安全都是利用使用者對於資安不了解才被攻擊，而 <code>SSRF</code> 則是直接利用伺服器的漏洞來攻擊網站的內部系統，這篇文章除了教大家 <code>SSRF</code>的原理外還寫了一些範例來模仿 <code>SSRF</code> 攻擊非常適合閱讀。</p>
+<h2 id="DevOps"><a href="#DevOps" class="headerlink" title="DevOps"></a>DevOps</h2><h3 id="10-best-practices-to-containerize-Node-js-web-applications-with-Docker"><a href="#10-best-practices-to-containerize-Node-js-web-applications-with-Docker" class="headerlink" title="10 best practices to containerize Node.js web applications with Docker"></a><a href="https://snyk.io/blog/10-best-practices-to-containerize-nodejs-web-applications-with-docker/" target="_blank" rel="noopener">10 best practices to containerize Node.js web applications with Docker</a></h3><p>在實踐 DevSecOps 上滿不錯的公司 Snyk，最近發表了一篇文章分享 10 個容器化 Node.js 應用服務的最佳實踐方式，其中有些算是比較常見的，例如要使用特定的 Container Image Tag，不要使用 latest，不要安裝不需要的函示庫…等，有使用 Node.js 的人不要錯過了～</p>
+<h3 id="Building-On-Call-Culture-at-GitHub"><a href="#Building-On-Call-Culture-at-GitHub" class="headerlink" title="Building On-Call Culture at GitHub"></a><a href="https://github.blog/2021-01-06-building-on-call-culture-at-github/" target="_blank" rel="noopener">Building On-Call Culture at GitHub</a></h3><p>隨著 GitHub 服務的規模越來越大，產品的數量和複雜性持續的增加之下，所以需要不斷改進 on-call 的策略，讓 GitHub 繼續成為開發者最信賴的家，最一開始在 Monolithic 的架構下其實 On-Call 遇到很多問題，例如多數的工程師其實不會熟悉全部的程式碼和功能，而且大量的工程師輪替起來沒有效率，輪到的人也沒有信心解決問題，所以他們決定推行新的 On-Call 文化，讓工程師只需要為自己負責的程式碼 On-Call, 詳細做法可以參閱內文</p>
+<h3 id="Announcing-CDK-for-Terraform-0-1"><a href="#Announcing-CDK-for-Terraform-0-1" class="headerlink" title="Announcing CDK for Terraform 0.1"></a><a href="https://www.hashicorp.com/blog/announcing-cdk-for-terraform-0-1" target="_blank" rel="noopener">Announcing CDK for Terraform 0.1</a></h3><p>去年八月 CDK for Terraform 剛推出的時候，自己還有寫<a href="https://medium.com/starbugs/cdk-for-terraform-%E5%88%9D%E8%A9%A6%E5%95%BC%E8%81%B2-86a80f1315db" target="_blank" rel="noopener">文章</a>介紹，過了將近半年正式推出 0.1 版，跟當初相比起來，現在多支援 Support C#，Java，並且加強與 Terraform Cloud 的整合度，而且當初這個開源專案的維護者Sebastian Korfmann 也加入了 HashiCorp，跟當初 Atlantis 的情況有一點點像，期待可以發展的越來越成熟</p>
+<h2 id="StarBugs-Weekly"><a href="#StarBugs-Weekly" class="headerlink" title="StarBugs Weekly"></a>StarBugs Weekly</h2><p>StarBugs Weekly 由一群不寫文章就會想要亂花錢，但是又沒有那麼多錢，只好繼續寫文章的開發者所創立。<br>內容包含 Web 前端、中端、後端、DevOps、產品開發、精實創業，一切跟產品有關的知識，都是我們的守備範圍！</p>
+<p>Writers:</p>
+<ul>
+<li><a href="https://medium.com/@hannahlin" target="_blank" rel="noopener">@HannahLin</a> - 從台灣到矽谷，熱愛前端的工程師女孩。</li>
+<li><a href="https://oldmo860617.medium.com/" target="_blank" rel="noopener">@Kyle老莫</a> - 無法忍受自己一天不進步的熱血社會菜雞。</li>
+<li><a href="https://medium.com/@airwaves" target="_blank" rel="noopener">@Airwaves</a> - Hi~我是 Airwaves，熱愛研究如何造輪子的前端工程師。</li>
+<li><a href="https://medium.com/@jinghua.shih" target="_blank" rel="noopener">@Jenny</a> - 我不寫 CSS。</li>
+</ul>
+<p>Curators:</p>
+<ul>
+<li><a href="https://medium.com/@w5151381guy" target="_blank" rel="noopener">@Andy</a> - 目標成為用嘴巴工作的工程師，專長為網頁開發以及 K8s。</li>
+</ul>
+<p>Maintainers:</p>
+<ul>
+<li><a href="https://medium.com/@gqsm" target="_blank" rel="noopener">@GQSM</a> - Hi！我是神 Q 超人，一個先衝再說的男人。</li>
+<li><a href="https://larry850806.medium.com" target="_blank" rel="noopener">@Larry850806</a> - 我是 Larry，傳說中的 0.1 倍工程師！</li>
+<li><a href="https://medium.com/@LukaTW" target="_blank" rel="noopener">@LukaTW</a> - 一名全身都是死角的工程師。</li>
+<li><a href="https://medium.com/@smalltown" target="_blank" rel="noopener">@smalltown</a> - 熱愛鑽研各種可以提升雲端服務品質及增進團隊開發效率的開源技術。</li>
+</ul>
+<h2 id="Feedback"><a href="#Feedback" class="headerlink" title="Feedback"></a>Feedback</h2><p>本週呈現主題方式做了一些改變，希望讓讀者能夠更快速精準的找到自己要的資訊。也加入社群活動這個區塊，每週更新社群活動的資訊。如果有任何建議，歡迎私訊 <a href="https://www.facebook.com/StarBugsWeekly/" target="_blank" rel="noopener">星巴哥技術週刊 FB 粉絲專頁</a> 與我們聯繫。</p>
+</div></article><nav class="pagination_post" id="pagination"><div class="prev-post pull-left"><a href="/2021/01/26/65-remember-to-git-pull-every-day/"><img class="prev_cover lozad" data-src="/img/065cover.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Previous Post</div><div class="prev_info"><span>第 65 期 - 每天都 git pull，conflict 遠離我</span></div></a></div><div class="next-post pull-right"><a href="/2021/01/12/63-the-winter-is-coming-may-i-freeze-code/"><img class="next_cover lozad" data-src="/img/063cover.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Next Post</div><div class="next_info"><span>第 63 期 - 寒流來襲，程式碼可以先冰起來，等到夏天再拿出來寫嗎？</span></div></a></div></nav></div></div><footer style="background-image: url(/img/banner.jpeg)"><div id="footer"><div class="copyright">&copy;2019 - 2023 By StarBugs Weekly Editors</div></div></footer></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/nightshift.js"></script><script color="0,0,255" opacity="0.7" zIndex="-1" count="39" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN/js/canvas-nest.js"></script><script src="/js/tw_cn.js"></script><script>translateInitilization()
+</script><script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script><script>const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+observer.observe();
+</script><script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1691460553344')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body></html>
